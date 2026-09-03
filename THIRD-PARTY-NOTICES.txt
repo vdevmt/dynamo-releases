@@ -1,0 +1,190 @@
+THIRD-PARTY NOTICES
+===================
+
+DYNAMO includes third-party material: the icons of its user interface,
+the Buy Me a Coffee button shown in the About window, and the runtime and
+libraries that are distributed together with the executable. The notices below
+are reproduced as required by the licenses and terms of that material.
+
+This file is not translated: it reproduces license terms verbatim, and a
+translation would not be the license.
+
+Business Central itself, its administration cmdlets and its online services are
+not part of this distribution: the application only calls what is already
+installed on the server or published by Microsoft as a service.
+
+TRADEMARKS
+
+Microsoft, Dynamics and Business Central are registered trademarks of Microsoft
+Corporation. DYNAMO is not affiliated with or sponsored by Microsoft.
+
+Those names appear in this product only to say what it works with. Any other
+product or company name mentioned here belongs to its respective owner.
+
+
+-------------------------------------------------------------------------------
+Font Awesome Free
+https://fontawesome.com
+https://github.com/FortAwesome/Font-Awesome
+
+The icons shown in the user interface are derived from Font Awesome Free and are
+embedded in the application as vector outlines. The font files themselves are not
+redistributed with the application.
+
+Font Awesome Free is free, open source, and GPL friendly. It is licensed in
+three parts, as stated by its authors:
+
+  Icons - CC BY 4.0 License (https://creativecommons.org/licenses/by/4.0/)
+      In the Font Awesome Free download, the CC BY 4.0 license applies to all
+      icons packaged as SVG and JS file types.
+
+  Fonts - SIL OFL 1.1 License (https://scripts.sil.org/OFL)
+      In the Font Awesome Free download, the SIL OFL license applies to all
+      icons packaged as web and desktop font files.
+
+  Code - MIT License (https://opensource.org/licenses/MIT)
+      In the Font Awesome Free download, the MIT license applies to all
+      non-font and non-icon files.
+
+Attribution:
+      Font Awesome Free by @fontawesome - https://fontawesome.com
+      Copyright (c) Fonticons, Inc.
+
+Full license text: https://github.com/FortAwesome/Font-Awesome/blob/6.x/LICENSE.txt
+-------------------------------------------------------------------------------
+Buy Me a Coffee button
+https://buymeacoffee.com
+
+The yellow "Buy me a coffee" button shown in the About window is the official
+button image supplied by Buy Me a Coffee to the creators who publish a page on
+that platform. It is embedded in the application, reproduced unmodified, and
+opens the page of this application's author in a browser.
+
+"Buy Me a Coffee", its logo and its button are trademarks of their owner. They
+are used with the permission granted to the author as a creator on that
+platform; they are not covered by the license of this application; and their
+presence does not mean that Buy Me a Coffee is affiliated with, sponsors or
+endorses this application.
+
+No payment is handled by this application: the button only opens a web page.
+-------------------------------------------------------------------------------
+.NET Runtime
+https://github.com/dotnet/runtime
+
+The application is distributed as a self-contained build and therefore includes
+the .NET runtime and its libraries, System.Security.Cryptography.ProtectedData
+among them.
+
+Copyright (c) .NET Foundation and Contributors
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+PowerShell
+https://github.com/PowerShell/PowerShell
+
+The PowerShell engine (Microsoft.PowerShell.SDK) hosted by the application to
+run the administration commands.
+
+Copyright (c) Microsoft Corporation.
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+Microsoft Authentication Library for .NET (MSAL.NET)
+https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+
+Used for the interactive sign-in to Microsoft Entra ID and for the protected
+token cache.
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+Json.NET (Newtonsoft.Json)
+https://github.com/JamesNK/Newtonsoft.Json
+
+Distributed as part of the PowerShell engine.
+
+Copyright (c) 2007 James Newton-King
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+Humanizer
+https://github.com/Humanizr/Humanizer
+
+Distributed as part of the PowerShell engine.
+
+Copyright (c) .NET Foundation and Contributors
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+json-everything (Json.More.Net, JsonPointer.Net, JsonSchema.Net)
+https://github.com/gregsdennis/json-everything
+
+Distributed as part of the PowerShell engine.
+
+Copyright (c) 2020 Greg Dennis
+
+Licensed under the MIT License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+Markdig
+https://github.com/xoofx/markdig
+
+Distributed as part of the PowerShell engine.
+
+Copyright (c) 2018-2019, Alexandre Mutel
+All rights reserved.
+
+Licensed under the BSD 2-Clause License, reproduced at the end of this file.
+-------------------------------------------------------------------------------
+
+
+MIT LICENSE
+===========
+
+Applies to the components listed above as licensed under the MIT License, each
+with its own copyright notice as stated in its section.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+BSD 2-CLAUSE LICENSE
+====================
+
+Applies to Markdig, with the copyright notice stated in its section.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

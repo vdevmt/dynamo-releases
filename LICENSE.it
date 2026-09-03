@@ -1,0 +1,110 @@
+DYNAMO - Contratto di licenza con l'utente finale
+
+Copyright (c) 2026 Vito Iacovone. Tutti i diritti riservati.
+
+Questo software è proprietario. Viene concesso in licenza, non venduto.
+Installandolo, copiandolo o utilizzandolo si accettano le condizioni che seguono.
+Chi non le accetta non deve installarlo né utilizzarlo.
+
+1. CONCESSIONE
+
+   Il Licenziante concede un diritto non esclusivo, non trasferibile e revocabile
+   di installare e utilizzare il Software per le proprie finalità aziendali
+   interne, sulle macchine di cui si è proprietari o amministratori.
+
+   Il Software viene fornito senza corrispettivo, con i limiti indicati nel
+   programma stesso.
+
+   La presente concessione riguarda la versione consegnata. Quanto concesso, e le
+   condizioni alle quali sono rese disponibili le versioni successive, possono
+   cambiare.
+
+2. LIMITAZIONI
+
+   Non è consentito:
+
+   a) distribuire, pubblicare, vendere, noleggiare, concedere in locazione o in
+      sublicenza il Software, né renderlo altrimenti disponibile a terzi;
+   b) decompilare, disassemblare o sottoporre il Software a reverse engineering,
+      salvo nei limiti in cui tale divieto sia vietato dalla legge applicabile;
+   c) modificare il Software o crearne opere derivate;
+   d) rimuovere o alterare le indicazioni di copyright, i marchi e ogni altra
+      nota di proprietà.
+
+3. PROPRIETÀ
+
+   Il Software è concesso in licenza, non venduto. Il Licenziante conserva ogni
+   diritto, titolo e interesse su di esso, compresi tutti i diritti di proprietà
+   intellettuale. Non viene concesso alcun diritto oltre a quelli espressamente
+   indicati in questo contratto.
+
+4. COMPONENTI DI TERZE PARTI
+
+   Il Software incorpora componenti distribuiti con licenze permissive proprie,
+   fra cui il runtime .NET, Microsoft.PowerShell.SDK, Microsoft.Identity.Client
+   (MSAL), System.Security.Cryptography.ProtectedData, Json.NET, Humanizer,
+   Markdig, le librerie json-everything e Font Awesome Free. Tali componenti
+   restano regolati dalle rispettive licenze e nulla in questo contratto limita i
+   diritti che esse concedono. L'elenco completo, con i relativi avvisi, è
+   riprodotto nell'applicazione, in "Informazioni" > "Componenti di terze parti".
+
+   La finestra "Informazioni" mostra inoltre il pulsante ufficiale "Buy Me a
+   Coffee", usato con il permesso concesso all'autore in quanto creator di quella
+   piattaforma. "Buy Me a Coffee", il suo logo e il suo pulsante sono marchi dei
+   rispettivi titolari, non rientrano nella licenza qui concessa e la loro
+   presenza non implica alcuna affiliazione con quella piattaforma, né alcuna
+   sponsorizzazione o approvazione da parte sua.
+
+   Microsoft, Dynamics e Business Central sono marchi registrati di Microsoft
+   Corporation. DYNAMO non è affiliato né sponsorizzato da Microsoft. Tali nomi
+   sono usati in questo prodotto solo per identificare i sistemi con cui esso
+   opera, e questo contratto non concede all'utente alcun diritto su di essi.
+
+5. DATI D'USO
+
+   Il Software può inviare conteggi d'uso anonimi: il paese, la versione in uso
+   e quale insieme di funzioni è attivo, quante destinazioni si amministrano e
+   di che tipo, la versione di Business Central di tali destinazioni ridotta a
+   versione maggiore e minore, e quali comandi vengono lanciati, quante volte e
+   su quale tipo di destinazione. Non viene mai inviato alcun nome di server,
+   istanza di servizio, tenant, database, account, società o estensione, né
+   alcun percorso, né il testo di alcun messaggio d'errore, né il nome a cui
+   questa copia è registrata, né l'impronta a cui è legata, e per questo scopo
+   non viene letto alcun contenuto dei sistemi amministrati.
+
+   I conteggi sono ricevuti da Microsoft Azure Application Insights e non sono
+   riconducibili all'utente. L'invio si può disattivare in qualsiasi momento,
+   nelle Impostazioni, alla voce "Privacy". L'informativa completa è riprodotta
+   nell'applicazione, in quella stessa pagina, e dice che cosa viene inviato,
+   che cosa non lo è mai, dove attende e per quanto tempo viene conservato.
+
+6. ESCLUSIONE DI GARANZIA
+
+   IL SOFTWARE È FORNITO "COSÌ COM'È", SENZA GARANZIE DI ALCUN TIPO, ESPRESSE O
+   IMPLICITE, COMPRESE FRA LE ALTRE LE GARANZIE DI COMMERCIABILITÀ, IDONEITÀ A
+   UNO SCOPO PARTICOLARE E NON VIOLAZIONE DI DIRITTI ALTRUI.
+
+7. LIMITAZIONE DI RESPONSABILITÀ
+
+   Il Software amministra servizi e ambienti Business Central in produzione.
+   Operazioni come l'arresto o il riavvio di un servizio, la pubblicazione o la
+   disinstallazione di un'estensione, l'importazione di una licenza o la modifica
+   di una chiave di configurazione interrompono o alterano sistemi attivi. Resta
+   a carico dell'utente la verifica della destinazione di ogni operazione e
+   l'esecuzione delle proprie copie di sicurezza.
+
+   NELLA MISURA MASSIMA CONSENTITA DALLA LEGGE APPLICABILE, IL LICENZIANTE NON
+   POTRÀ IN ALCUN CASO ESSERE RITENUTO RESPONSABILE PER PRETESE, DANNI O ALTRE
+   OBBLIGAZIONI, COMPRESI LA PERDITA DI DATI, IL MANCATO GUADAGNO E
+   L'INTERRUZIONE DELL'ATTIVITÀ, DERIVANTI DAL SOFTWARE O DAL SUO UTILIZZO,
+   A QUALUNQUE TITOLO, CONTRATTUALE O EXTRACONTRATTUALE.
+
+8. RISOLUZIONE
+
+   La presente licenza si risolve automaticamente in caso di violazione di una
+   qualsiasi delle sue condizioni. Alla risoluzione occorre cessare l'utilizzo
+   del Software e distruggerne ogni copia in proprio possesso.
+
+9. LEGGE APPLICABILE
+
+   Il presente contratto è regolato dalla legge italiana.

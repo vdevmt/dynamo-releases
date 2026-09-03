@@ -1,0 +1,106 @@
+DYNAMO - End User License Agreement
+
+Copyright (c) 2026 Vito Iacovone. All rights reserved.
+
+This software is proprietary. It is licensed, not sold. By installing, copying or
+using it you accept the terms below. If you do not accept them, do not install
+and do not use it.
+
+1. GRANT
+
+   The Licensor grants you a non-exclusive, non-transferable and revocable right
+   to install and use the Software for your own internal business purposes, on
+   the machines you own or administer.
+
+   The Software is made available without any fee, with the limits stated in
+   the program itself.
+
+   This grant covers the version delivered to you. What is granted, and the
+   terms on which later versions are made available, may change.
+
+2. RESTRICTIONS
+
+   You may not:
+
+   a) distribute, publish, sell, rent, lease, sublicense or otherwise make the
+      Software available to third parties;
+   b) reverse engineer, decompile or disassemble the Software, except to the
+      extent that this restriction is prohibited by applicable law;
+   c) modify the Software or create derivative works based on it;
+   d) remove or alter any copyright, trademark or other proprietary notice.
+
+3. OWNERSHIP
+
+   The Software is licensed, not sold. The Licensor retains all right, title and
+   interest in it, including every intellectual property right. No right is
+   granted other than those expressly stated in this agreement.
+
+4. THIRD-PARTY COMPONENTS
+
+   The Software includes components distributed under their own permissive
+   licenses, among them the .NET runtime, Microsoft.PowerShell.SDK,
+   Microsoft.Identity.Client (MSAL), System.Security.Cryptography.ProtectedData,
+   Json.NET, Humanizer, Markdig, the json-everything libraries and Font Awesome
+   Free. Those components remain governed by their respective licenses, and
+   nothing in this agreement limits the rights granted to you under them. The
+   complete list, with their notices, is reproduced in the application, under
+   "About" > "Third-party components".
+
+   The "About" window also shows the official "Buy Me a Coffee" button, used with
+   the permission granted to the author as a creator on that platform. "Buy Me a
+   Coffee", its logo and its button are trademarks of their owner, are not part
+   of the license granted to you here, and their presence does not imply any
+   affiliation with, sponsorship by or endorsement from that platform.
+
+   Microsoft, Dynamics and Business Central are registered trademarks of
+   Microsoft Corporation. DYNAMO is not affiliated with or sponsored by
+   Microsoft. Those names are used in this product only to identify the systems
+   it works with, and no right in them is granted to you by this agreement.
+
+5. USAGE DATA
+
+   The Software can send anonymous usage counts: the country, the version in
+   use and which set of features is enabled, how many targets are managed and
+   of which kind, the Business Central version of those targets shortened to
+   major and minor, and which commands are launched, how many times and on
+   what kind of target. No name of a server, service instance, tenant,
+   database, account, company or extension is ever sent, no path, no error
+   message text, no name this copy is registered to and no fingerprint it is
+   tied to, and no content of the systems you administer is read for this
+   purpose.
+
+   The counts are received by Microsoft Azure Application Insights and cannot be
+   traced back to you. Sending can be switched off at any time, in Settings,
+   under "Privacy". The complete notice is reproduced in the application, on
+   that same page, and states what is sent, what never is, where it waits and
+   for how long it is kept.
+
+6. NO WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+7. LIMITATION OF LIABILITY
+
+   The Software administers Business Central services and environments in
+   production. Operations such as stopping or restarting a service, publishing
+   or uninstalling an extension, importing a license or changing a configuration
+   key interrupt or alter live systems. You remain responsible for checking the
+   target of every operation and for your own backups.
+
+   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+   LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING LOSS
+   OF DATA, LOSS OF PROFIT OR BUSINESS INTERRUPTION, WHETHER IN AN ACTION OF
+   CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+   SOFTWARE OR THE USE OF OR OTHER DEALINGS IN THE SOFTWARE.
+
+8. TERMINATION
+
+   This license terminates automatically if you breach any of its terms. Upon
+   termination you must stop using the Software and destroy every copy of it in
+   your possession.
+
+9. GOVERNING LAW
+
+   This agreement is governed by the laws of Italy.

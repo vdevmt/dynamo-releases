@@ -1,0 +1,108 @@
+DYNAMO - USAGE DATA
+===================
+
+DYNAMO can send anonymous usage counts. This notice says exactly what leaves the
+machine, what never does, and how to switch it off.
+
+
+WHAT IT IS FOR
+--------------
+
+To improve the program: which commands are actually used, on how many targets,
+and on which versions of Business Central.
+
+It is not a support channel, it carries no errors and no diagnostics, and
+nothing that is sent can be traced back to you, to your company or to the
+systems you administer.
+
+
+WHAT IS SENT
+------------
+
+1.  The country, worked out by the receiving service from the network address
+    of the connection. The address itself is not stored: the service replaces
+    it with 0.0.0.0 as soon as it has read the country from it.
+
+2.  The version of DYNAMO.
+
+3.  Which set of features this copy is running with, and how it was enabled.
+    Never the name it is registered to, and never the fingerprint it is tied
+    to.
+
+4.  How many on-premises servers and how many online tenants are in the list.
+    Counts only.
+
+5.  How many tenants sign in with a device code and how many through the
+    browser. Counts only.
+
+6.  For every target in the list: whether it is on-premises or online, and for
+    online environments whether it is a production or a sandbox environment.
+
+7.  The Business Central version of each target, shortened to major and minor
+    only - "27.5", never the full build number.
+
+8.  Which commands have been launched and how many times, each together with
+    the kind of target it was launched on and its Business Central version.
+
+9.  An identifier of this installation, plus how long the data waited before
+    being sent. The identifier is drawn at random: it is not derived from the
+    machine, from the domain or from your account.
+
+
+WHAT IS NEVER SENT
+------------------
+
+Names of servers, service instances, tenants, tenant identifiers, databases,
+ports, addresses, accounts, companies; names, identifiers or publishers of
+extensions; file paths; the name this copy is registered to and the fingerprint
+it is tied to; the labels you give to your tabs; and the text of any error
+message - messages coming from Business Central, PowerShell or Windows
+routinely contain server names.
+
+Nothing you type is ever sent, and no content of your systems is read for this
+purpose.
+
+
+WHEN IT HAPPENS
+---------------
+
+In the background, and never while you wait for anything. The first send
+happens shortly after the program starts, and after that not more often than
+once every six hours - at most four times a day. If the machine has no way out
+to the internet, the attempt fails silently.
+
+Nothing accumulates forever: the oldest counts are dropped.
+
+
+WHERE THE DATA WAITS
+--------------------
+
+In a single readable file, in your user profile:
+
+    %LOCALAPPDATA%\Dynamo\telemetry\telemetry.json
+
+It is plain text: open it with Notepad and you see precisely what is waiting to
+be sent. You can delete it at any time, with no consequences for the program.
+
+
+HOW TO SWITCH IT OFF
+--------------------
+
+Tools > Settings > Privacy, clear the checkbox, Save. It stops immediately.
+
+
+WHO RECEIVES IT
+---------------
+
+The data is received by Microsoft Azure Application Insights, in the West
+Europe region, and is kept for 90 days.
+
+The controller is Vito Iacovone, the author of DYNAMO. For any request about
+this notice, use the same channel through which you obtained the program.
+
+
+TRADEMARKS
+----------
+
+Microsoft, Dynamics and Business Central are registered trademarks of Microsoft
+Corporation. DYNAMO is not affiliated with or sponsored by Microsoft.

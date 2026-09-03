@@ -1,0 +1,12 @@
+# Testo normalizzato a LF: i documenti di questa cartella si leggono su GitHub,
+# dove il CR finale comparirebbe nelle diff di ogni riga toccata.
+* text=auto eol=lf
+
+# I binari NON vanno normalizzati: la conversione delle terminazioni di riga
+# dentro un file compresso lo corrompe in silenzio, e il danno si scopre solo
+# quando qualcuno prova ad aprirlo.
+*.png binary
+*.jpg binary
+*.ico binary
+*.msi binary
+*.zip binary

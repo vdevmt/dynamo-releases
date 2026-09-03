@@ -1,0 +1,109 @@
+DYNAMO - DATI D'USO
+===================
+
+DYNAMO può inviare conteggi d'uso anonimi. Questa informativa dice esattamente
+che cosa lascia la macchina, che cosa non la lascia mai e come si spegne.
+
+
+A CHE COSA SERVE
+----------------
+
+A migliorare il programma: quali comandi vengono usati davvero, su quante
+destinazioni e con quali versioni di Business Central.
+
+Non è un canale di assistenza, non trasporta errori né diagnostica, e niente di
+quello che viene inviato può essere ricondotto a te, alla tua azienda o ai
+sistemi che amministri.
+
+
+CHE COSA VIENE INVIATO
+----------------------
+
+1.  Il paese, ricavato dal servizio che riceve i dati dall'indirizzo di rete
+    della connessione. L'indirizzo non viene conservato: il servizio lo
+    sostituisce con 0.0.0.0 appena ne ha letto il paese.
+
+2.  La versione di DYNAMO.
+
+3.  Quale insieme di funzioni ha questa copia e in che modo è stato attivato.
+    Mai il nome a cui è registrata, mai l'impronta a cui è legata.
+
+4.  Quanti server locali e quanti tenant online ci sono in elenco. Solo numeri.
+
+5.  Quanti tenant accedono con un codice dispositivo e quanti dal browser.
+    Solo numeri.
+
+6.  Per ogni destinazione in elenco: se è locale oppure online, e per gli
+    ambienti online se si tratta di un ambiente di produzione o di prova.
+
+7.  La versione di Business Central di ogni destinazione, ridotta alla sola
+    versione maggiore e minore - "27.5", mai il numero di build completo.
+
+8.  Quali comandi sono stati lanciati e quante volte, ognuno insieme al tipo di
+    destinazione su cui è stato lanciato e alla sua versione di Business
+    Central.
+
+9.  Un identificativo di questa installazione, e da quanto tempo il dato era in
+    attesa di partire. L'identificativo è estratto a caso: non deriva dalla
+    macchina, dal dominio né dal tuo account.
+
+
+CHE COSA NON VIENE MAI INVIATO
+------------------------------
+
+Nomi di server, istanze di servizio, tenant, identificativi di tenant, database,
+porte, indirizzi, account, società; nomi, identificativi o publisher delle
+estensioni; percorsi di file; il nome a cui questa copia è registrata e
+l'impronta a cui è legata; le etichette che dai alle tue schede; e il testo di
+qualunque messaggio d'errore - i messaggi che arrivano da Business Central, da
+PowerShell o da Windows contengono abitualmente nomi di server.
+
+Niente di quello che scrivi viene mai inviato, e per questo scopo non viene
+letto alcun contenuto dei tuoi sistemi.
+
+
+QUANDO SUCCEDE
+--------------
+
+In secondo piano, e mai mentre stai aspettando qualcosa. Il primo invio avviene
+poco dopo l'avvio del programma, e da lì in poi non più di una volta ogni sei
+ore - al massimo quattro volte al giorno. Se la macchina non ha una via d'uscita
+verso Internet il tentativo fallisce in silenzio.
+
+Niente si accumula all'infinito: i conteggi più vecchi si perdono.
+
+
+DOVE ASPETTANO I DATI
+---------------------
+
+In un unico file leggibile, dentro il tuo profilo utente:
+
+    %LOCALAPPDATA%\Dynamo\telemetry\telemetry.json
+
+È in chiaro: aprendolo col Blocco note si vede esattamente ciò che è in attesa
+di partire. Si può cancellare in qualsiasi momento, senza conseguenze per il
+programma.
+
+
+COME SI SPEGNE
+--------------
+
+Strumenti > Impostazioni > Privacy, togliere la spunta, Salva. L'effetto è
+immediato.
+
+
+CHI LI RICEVE
+-------------
+
+I dati sono ricevuti da Microsoft Azure Application Insights, nella regione
+Europa occidentale, e vengono conservati per 90 giorni.
+
+Il titolare è Vito Iacovone, autore di DYNAMO. Per qualunque richiesta relativa
+a questa informativa si usi lo stesso canale da cui si è ottenuto il programma.
+
+
+MARCHI
+------
+
+Microsoft, Dynamics e Business Central sono marchi registrati di Microsoft
+Corporation. DYNAMO non è affiliato né sponsorizzato da Microsoft.
