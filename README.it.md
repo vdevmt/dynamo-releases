@@ -81,12 +81,12 @@ creare). Per disinstallare in silenzio, con lo stesso file:
 ## Requisiti
 
 **Sul PC che esegue lo strumento** — niente da installare: il runtime .NET è incluso nel pacchetto.
-Windows 10/11 o Windows Server, x64. Il programma parte con i diritti di chi lo lancia e **non**
-chiede conferma a UAC. I diritti di amministratore servono solo per le istanze Business Central
-installate su quello stesso computer; dove servono e non ci sono, i comandi restano spenti e la
-barra di stato lo dice, quindi niente fallisce a metà lavoro. Con *Strumenti > Riavvia come
-amministratore* si riparte con i diritti. Lavorare su server remoti o online non richiede nulla di
-tutto questo.
+Windows 10/11, oppure Windows Server 2016 o successivo, x64. Il programma parte con i diritti di
+chi lo lancia e **non** chiede conferma a UAC. I diritti di amministratore servono solo per le
+istanze Business Central installate su quello stesso computer; dove servono e non ci sono, i comandi
+restano spenti e la barra di stato lo dice, quindi niente fallisce a metà lavoro. Con *Strumenti >
+Riavvia come amministratore* si riparte con i diritti. Lavorare su server remoti o online non
+richiede nulla di tutto questo.
 
 **Sui server Business Central locali** — Windows PowerShell 5.1 con il modulo di amministrazione di
 Business Central installato; PowerShell Remoting (WinRM) abilitato, con il loopback consentito per i

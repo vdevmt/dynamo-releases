@@ -77,11 +77,12 @@ To uninstall silently, with the same file: `msiexec /x dynamo-<version>-x64-en.m
 ## Requirements
 
 **On the PC running the tool** — nothing to install: the .NET runtime is included in the package.
-Windows 10/11 or Windows Server, x64. The program starts with your own rights and does **not** ask
-for UAC. Administrator rights are needed only for Business Central instances installed on that same
-computer; where they are needed and you do not have them the commands stay switched off and the
-status bar says so, so nothing fails halfway through. *Tools > Restart as administrator* restarts
-the program with the rights. Working on remote servers or online never needs any of this.
+Windows 10/11, or Windows Server 2016 or later, x64. The program starts with your own rights and
+does **not** ask for UAC. Administrator rights are needed only for Business Central instances
+installed on that same computer; where they are needed and you do not have them the commands stay
+switched off and the status bar says so, so nothing fails halfway through. *Tools > Restart as
+administrator* restarts the program with the rights. Working on remote servers or online never
+needs any of this.
 
 **On the on-premises Business Central servers** — Windows PowerShell 5.1 with the Business Central
 administration module installed; PowerShell Remoting (WinRM) enabled, with the loopback allowed for
