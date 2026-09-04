@@ -91,6 +91,8 @@ richiede nulla di tutto questo.
 **Sui server Business Central locali** — Windows PowerShell 5.1 con il modulo di amministrazione di
 Business Central installato; PowerShell Remoting (WinRM) abilitato, con il loopback consentito per i
 servizi sulla stessa macchina; un account autorizzato a gestire i servizi e a pubblicare estensioni.
+Si usa la porta standard di WinRM; un server che accetta solo HTTPS si imposta per scheda, da
+*Impostazioni di connessione*.
 
 **Per gli ambienti online** — connettività verso `api.businesscentral.dynamics.com` e
 `login.microsoftonline.com`; un browser con cui accedere; un account amministratore di Business
@@ -276,6 +278,7 @@ verranno toccate**. Le conferme che interrompono un servizio partono da «No».
 | Preferenze (lingua, parallelismo, rilettura) | `%APPDATA%\Dynamo\settings.json` |
 | Cache del token di accesso (cifrata) | `%LOCALAPPDATA%\Dynamo\` |
 | Account dei server locali | Gestione credenziali di Windows, `DYNAMO:<server>` |
+| Dettaglio degli errori imprevisti (si tengono i più recenti) | `%APPDATA%\Dynamo\errors.log` |
 
 *File > Impostazioni* mostra il percorso della cartella e la apre: è quella da copiare per un backup
 o per portare la configurazione su un'altra macchina.

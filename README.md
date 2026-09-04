@@ -87,6 +87,8 @@ needs any of this.
 **On the on-premises Business Central servers** — Windows PowerShell 5.1 with the Business Central
 administration module installed; PowerShell Remoting (WinRM) enabled, with the loopback allowed for
 services on the same machine; an account permitted to manage the services and publish extensions.
+The standard WinRM port is used; a server that only accepts HTTPS is set up per tab, under
+*Connection settings*.
 
 **For online environments** — connectivity to `api.businesscentral.dynamics.com` and
 `login.microsoftonline.com`; a browser to sign in with; a Business Central administrator account on
@@ -268,6 +270,7 @@ will be touched**. Confirmations that would interrupt a service start on "No".
 | Preferences (language, parallelism, refresh) | `%APPDATA%\Dynamo\settings.json` |
 | Sign-in token cache (encrypted) | `%LOCALAPPDATA%\Dynamo\` |
 | On-premises server accounts | Windows Credential Manager, `DYNAMO:<server>` |
+| Unexpected error details (most recent kept) | `%APPDATA%\Dynamo\errors.log` |
 
 *File > Settings* shows the path of the folder and opens it: that is the folder to copy for a
 backup, or to move the configuration to another machine.
