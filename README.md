@@ -59,6 +59,19 @@ default language), **Repair** (puts back missing or damaged files) and **Remove*
 Neither upgrading nor uninstalling loses your list, tabs, online connections or preferences: they
 live in your user profile and are not touched. To remove those as well, delete the folder by hand.
 
+### Checking for updates
+
+DYNAMO can check on its own whether a newer version has been published here, and offer to
+download and install it. The check alone never installs anything — downloading and installing
+always need an explicit click — and it changes only the label of *? > Check for updates*, to
+*Update available: version …*. Opening that shows what changed and, on request, downloads the
+installer for your language, verifies it against the checksum published with it, and starts it;
+DYNAMO closes so it can replace the files in use, exactly as if you had run the new installer by
+hand.
+
+How often it checks is set in *Settings > Updates*, from every day to never — zero leaves only the
+on-demand check, the right choice on a server where outbound connections are restricted by policy.
+
 ### Silent installation
 
     msiexec /i dynamo-<version>-x64-en.msi /qn

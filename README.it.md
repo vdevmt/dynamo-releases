@@ -62,6 +62,20 @@ Né l'aggiornamento né la disinstallazione perdono elenco, schede, connessioni 
 stanno nel profilo utente e non vengono toccate. Per togliere anche quelle si cancella la cartella a
 mano.
 
+### Verifica aggiornamenti
+
+DYNAMO può controllare da solo se qui è stata pubblicata una versione più recente, e offrire di
+scaricarla e installarla. Il controllo da solo non installa mai nulla — scaricare e installare
+richiedono sempre un clic esplicito — e cambia solo l'etichetta di *? > Verifica aggiornamenti*, in
+*Aggiornamento disponibile: versione …*. Aprendola si vede cosa è cambiato e, su richiesta, si
+scarica l'installer della propria lingua, si verifica contro l'impronta pubblicata insieme a lui e
+si avvia; DYNAMO si chiude perché possa sostituire i file in uso, esattamente come lanciando a
+mano il nuovo installer.
+
+Ogni quanto controlla si imposta in *Impostazioni > Aggiornamenti*, da ogni giorno a mai — zero
+lascia solo il controllo a richiesta, la scelta giusta su un server dove le connessioni in uscita
+sono vietate per policy.
+
 ### Installazione silenziosa
 
     msiexec /i dynamo-<versione>-x64-it.msi /qn
