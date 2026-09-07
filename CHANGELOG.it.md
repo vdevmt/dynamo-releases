@@ -7,7 +7,7 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
-## 1.45.0 — primo rilascio pubblico
+## 1.47.0 — primo rilascio pubblico
 
 La prima versione pubblicata qui. Le versioni precedenti non sono state distribuite.
 
@@ -44,7 +44,13 @@ Che cosa fa, a questa versione:
   conservati finché non si svuota.
 - **Inglese e italiano**, numeri, date e durate compresi, scelti dalle Impostazioni e indipendenti
   dalla lingua di Windows.
+- **Conteggi d'uso anonimi**, spegnibili in ogni momento dalle Impostazioni, dicono quali comandi
+  vengono usati e su quale versione di Business Central — più quanti server locali e quanti tenant
+  online ci sono in elenco, e con quanti account distinti si raggiungono i server locali. Mai un
+  nome, un percorso o il testo di un errore.
+- **Il pacchetto d'installazione è più leggero**: porta solo i file di supporto che servono a
+  inglese e italiano.
 
 ---
 
-Le note delle versioni precedenti alla 1.45.0 sono disponibili su richiesta.
+Le note delle versioni precedenti alla 1.47.0 sono disponibili su richiesta.

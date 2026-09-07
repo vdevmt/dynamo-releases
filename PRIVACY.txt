@@ -29,8 +29,9 @@ WHAT IS SENT
     Never the name it is registered to, and never the fingerprint it is tied
     to.
 
-4.  How many on-premises servers and how many online tenants are in the list.
-    Counts only.
+4.  How many on-premises servers and how many online tenants are in the
+    list, and how many distinct accounts the on-premises servers are
+    reached with. Counts only.
 
 5.  How many tenants sign in with a device code and how many through the
     browser. Counts only.

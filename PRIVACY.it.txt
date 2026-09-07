@@ -28,7 +28,8 @@ CHE COSA VIENE INVIATO
 3.  Quale insieme di funzioni ha questa copia e in che modo è stato attivato.
     Mai il nome a cui è registrata, mai l'impronta a cui è legata.
 
-4.  Quanti server locali e quanti tenant online ci sono in elenco. Solo numeri.
+4.  Quanti server locali e quanti tenant online ci sono in elenco, e con
+    quanti account distinti si raggiungono i server locali. Solo numeri.
 
 5.  Quanti tenant accedono con un codice dispositivo e quanti dal browser.
     Solo numeri.

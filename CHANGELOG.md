@@ -7,7 +7,7 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
-## 1.45.0 — first public release
+## 1.47.0 — first public release
 
 The first version published here. Earlier versions were not distributed.
 
@@ -41,7 +41,13 @@ What it does, at this version:
   you clear it.
 - **English and Italian**, including numbers, dates and durations, chosen in Settings and
   independent of the language of Windows.
+- **Anonymous usage counts**, switched off any time in Settings, say which commands get used and on
+  which Business Central version — plus how many on-premises servers and online tenants are in the
+  list, and how many distinct accounts reach the on-premises servers. Never a name, a path or the
+  text of an error.
+- **The installer package is smaller**: it now carries only the support files English and Italian
+  actually need.
 
 ---
 
-Release notes for versions before 1.45.0 are available on request.
+Release notes for versions before 1.47.0 are available on request.
