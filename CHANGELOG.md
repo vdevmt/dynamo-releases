@@ -7,6 +7,15 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.48.1 — toolbar follows the destination
+
+The toolbar now shows only the buttons that make sense for the selected tab: service commands and
+license stay OnPrem-only, a new Admin Center button opens the SaaS tenant portal, and a new Events
+button opens an environment's event log. On an environment in the recycle bin, only restoring it
+stays available until it comes back.
+
+---
+
 ## 1.48.0 — first release
 
 The first version published here, with the complete feature set of the program. Earlier versions
