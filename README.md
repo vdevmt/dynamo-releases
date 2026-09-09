@@ -90,19 +90,6 @@ Whether it checks is set in *Settings > Updates*, "Automatically check for updat
 default, checked at every startup. Turning it off leaves only the on-demand check, the right
 choice on a server where outbound connections are restricted by policy.
 
-### Silent installation
-
-    msiexec /i dynamo-<version>-x64-en.msi /qn
-
-The same choices offered by the screens can be set on the command line:
-
-    msiexec /i dynamo-<version>-x64-en.msi /qn ^
-            INSTALLFOLDER="D:\Apps\Dynamo" ^
-            APPLANGUAGE=en INSTALLDESKTOPSHORTCUT=0 INSTALLSTARTMENUSHORTCUT=1
-
-`APPLANGUAGE` is `en` or `it`; the two shortcut properties are `1` (create) or `0` (do not create).
-To uninstall silently, with the same file: `msiexec /x dynamo-<version>-x64-en.msi /qn`.
-
 ---
 
 ## Requirements
@@ -399,3 +386,18 @@ Open an [issue](../../issues). For anything that looks like a security problem, 
 When reporting, never paste server names, instance names, tenant identifiers, user names or
 credentials: an issue is public. The version number, what you did and what happened are enough to
 start.
+
+---
+
+## Support my work: Elevate your AL development Experience
+
+As a passionate Business Central developer, I dedicate my free time to creating tools that make AL development smoother, faster, and more enjoyable. 
+My goal is to simplify workflows, introduce practical features, and enhance the daily experience of developers like you.
+
+If my tools have saved you time, boosted your productivity, or simply made your work easier, I'd greatly appreciate your support. 
+By "buying me a coffee," you enable me to continue improving and maintaining these tools, ensuring they remain valuable and up-to-date.
+
+Every contribution, big or small, helps me focus on innovation and delivering even better solutions for the AL development community. 
+Your support truly makes a difference and keeps this journey alive
+
+[![https://www.buymeacoffee.com/viacovone](https://raw.githubusercontent.com/vdevmt/al-advanced-tools-suite/main/images/buymeacoffee.png)](https://www.buymeacoffee.com/viacovone)

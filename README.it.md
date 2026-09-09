@@ -93,20 +93,6 @@ aggiornamenti» — attiva di default, controlla a ogni apertura. Disattivandola
 controllo a richiesta, la scelta giusta su un server dove le connessioni in uscita sono vietate
 per policy.
 
-### Installazione silenziosa
-
-    msiexec /i dynamo-<versione>-x64-it.msi /qn
-
-Le stesse scelte offerte dalle schermate si possono impostare da riga di comando:
-
-    msiexec /i dynamo-<versione>-x64-it.msi /qn ^
-            INSTALLFOLDER="D:\Apps\Dynamo" ^
-            APPLANGUAGE=it INSTALLDESKTOPSHORTCUT=0 INSTALLSTARTMENUSHORTCUT=1
-
-`APPLANGUAGE` è `it` oppure `en`; le due proprietà dei collegamenti valgono `1` (crea) o `0` (non
-creare). Per disinstallare in silenzio, con lo stesso file:
-`msiexec /x dynamo-<versione>-x64-it.msi /qn`.
-
 ---
 
 ## Requisiti
@@ -409,3 +395,18 @@ prima [SECURITY.md](SECURITY.md).
 Quando segnali, non incollare mai nomi di server, nomi di istanze, identificativi di tenant, nomi
 utente o credenziali: una segnalazione è pubblica. Il numero di versione, che cosa hai fatto e che
 cosa è successo bastano per cominciare.
+
+---
+
+## Sostieni il mio lavoro: migliora la tua esperienza di sviluppo in AL
+
+In qualità di sviluppatore appassionato di Business Central, dedico il mio tempo libero alla creazione di strumenti che rendono lo sviluppo in AL più fluido, rapido e piacevole. 
+Il mio obiettivo è ottimizzare i flussi di lavoro, introdurre funzionalità pratiche e migliorare l'esperienza quotidiana di sviluppatori come te.
+
+Se i miei strumenti ti hanno fatto risparmiare tempo, hanno aumentato la tua produttività o semplicemente hanno reso più facile il tuo lavoro, apprezzerei molto il tuo sostegno. 
+Offrendomi un caffè, mi permetti di continuare a migliorare e mantenere questi strumenti, garantendo che rimangano utili e aggiornati.
+
+Ogni contributo, grande o piccolo, mi aiuta a concentrarmi sull'innovazione e a offrire soluzioni sempre migliori alla comunità degli sviluppatori AL. 
+Il tuo supporto fa davvero la differenza e permette a questo percorso di proseguire.
+
+[![https://www.buymeacoffee.com/viacovone](https://raw.githubusercontent.com/vdevmt/al-advanced-tools-suite/main/images/buymeacoffee.png)](https://www.buymeacoffee.com/viacovone)
