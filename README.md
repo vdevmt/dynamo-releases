@@ -28,6 +28,23 @@ outcome of every operation kept in a queue you can read at your own pace.
 
 ---
 
+# Why Dynamo
+
+Anyone who has ridden a bicycle with a dynamo remembers it: that small cylinder
+resting against the side of the wheel, spinning as you pedal and lighting the
+lamp. No battery, no external power. Just movement turning into light.
+
+Dynamo does the same for Business Central. The instances are already there, so
+are the services and the tenants — but until someone starts them, configures
+them and keeps an eye on them, they stay dark. Dynamo is the part that turns an
+administrator's work into a live, running environment.
+
+That is where the logo comes from too. The word starts in the neutral white of
+**DYNA** and lights up on the orange of **MO**:
+the same arc as the metaphor, from movement to light. And those two letters are
+not there by chance — MO stands for Management & Operations, which is exactly
+what the product does.
+
 ## Download and install
 
 Two installer packages are published with every release. They differ **only in the language of the

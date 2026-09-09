@@ -29,6 +29,22 @@ leggere con calma.
 
 ---
 
+# Perché Dynamo
+
+Chi ha avuto una bicicletta con la dinamo se lo ricorda: quel piccolo cilindro
+appoggiato al fianco della ruota, che gira mentre pedali e accende il fanale.
+Nessuna batteria, nessuna alimentazione esterna. Solo il movimento che diventa luce.
+
+Dynamo fa la stessa cosa con Business Central. Le istanze ci sono già, i servizi
+pure, i tenant anche — ma finché nessuno li avvia, li configura e li tiene sotto
+controllo, restano al buio. Dynamo è il pezzo che trasforma il lavoro
+dell'amministratore in un ambiente acceso e funzionante.
+
+Da qui viene anche il logo. La parola parte dal bianco neutro di **DYNA** e si
+accende sull'arancio di **MO**: è la stessa curva della metafora, dal movimento alla luce. 
+E quelle due lettere non sono lì per caso — MO sono le iniziali di Management & Operations, cioè quello
+che il prodotto fa davvero.
+
 ## Scaricare e installare
 
 Con ogni rilascio vengono pubblicati due pacchetti di installazione. Cambiano **solo la lingua delle
