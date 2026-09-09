@@ -29,7 +29,7 @@ leggere con calma.
 
 ---
 
-# Perché Dynamo
+## Perché Dynamo
 
 Chi ha avuto una bicicletta con la dinamo se lo ricorda: quel piccolo cilindro
 appoggiato al fianco della ruota, che gira mentre pedali e accende il fanale.
@@ -398,15 +398,14 @@ cosa è successo bastano per cominciare.
 
 ---
 
-## Sostieni il mio lavoro: migliora la tua esperienza di sviluppo in AL
+## Sostieni il progetto
 
-In qualità di sviluppatore appassionato di Business Central, dedico il mio tempo libero alla creazione di strumenti che rendono lo sviluppo in AL più fluido, rapido e piacevole. 
-Il mio obiettivo è ottimizzare i flussi di lavoro, introdurre funzionalità pratiche e migliorare l'esperienza quotidiana di sviluppatori come te.
+Sviluppo DYNAMO nel tempo libero, per rendere più semplice il lavoro di chi amministra Business
+Central: avviare i servizi, pubblicare le estensioni, tenere sotto controllo più server senza
+passare da dieci finestre diverse.
 
-Se i miei strumenti ti hanno fatto risparmiare tempo, hanno aumentato la tua produttività o semplicemente hanno reso più facile il tuo lavoro, apprezzerei molto il tuo sostegno. 
-Offrendomi un caffè, mi permetti di continuare a migliorare e mantenere questi strumenti, garantendo che rimangano utili e aggiornati.
+Se ti fa risparmiare tempo, puoi offrirmi un caffè. È del tutto facoltativo: nel programma non
+cambia niente, e il pulsante apre soltanto una pagina web. Ogni contributo, grande o piccolo, aiuta
+a tenere lo strumento aggiornato.
 
-Ogni contributo, grande o piccolo, mi aiuta a concentrarmi sull'innovazione e a offrire soluzioni sempre migliori alla comunità degli sviluppatori AL. 
-Il tuo supporto fa davvero la differenza e permette a questo percorso di proseguire.
-
-[![https://www.buymeacoffee.com/viacovone](https://raw.githubusercontent.com/vdevmt/al-advanced-tools-suite/main/images/buymeacoffee.png)](https://www.buymeacoffee.com/viacovone)
+<a href="https://www.buymeacoffee.com/viacovone"><img src="assets/buymeacoffee.png" alt="Buy Me a Coffee" height="60"></a>

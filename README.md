@@ -28,7 +28,7 @@ outcome of every operation kept in a queue you can read at your own pace.
 
 ---
 
-# Why Dynamo
+## Why Dynamo
 
 Anyone who has ridden a bicycle with a dynamo remembers it: that small cylinder
 resting against the side of the wheel, spinning as you pedal and lighting the
@@ -389,15 +389,14 @@ start.
 
 ---
 
-## Support my work: Elevate your AL development Experience
+## Support the project
 
-As a passionate Business Central developer, I dedicate my free time to creating tools that make AL development smoother, faster, and more enjoyable. 
-My goal is to simplify workflows, introduce practical features, and enhance the daily experience of developers like you.
+I build DYNAMO in my free time, to make life easier for the people who administer Business Central:
+starting services, publishing extensions, keeping an eye on several servers without juggling ten
+different windows.
 
-If my tools have saved you time, boosted your productivity, or simply made your work easier, I'd greatly appreciate your support. 
-By "buying me a coffee," you enable me to continue improving and maintaining these tools, ensuring they remain valuable and up-to-date.
+If it saves you time, you can offer me a coffee. Entirely optional: nothing in the program changes,
+and the button only opens a web page. Every contribution, big or small, helps keep the tool up to
+date.
 
-Every contribution, big or small, helps me focus on innovation and delivering even better solutions for the AL development community. 
-Your support truly makes a difference and keeps this journey alive
-
-[![https://www.buymeacoffee.com/viacovone](https://raw.githubusercontent.com/vdevmt/al-advanced-tools-suite/main/images/buymeacoffee.png)](https://www.buymeacoffee.com/viacovone)
+<a href="https://www.buymeacoffee.com/viacovone"><img src="assets/buymeacoffee.png" alt="Buy Me a Coffee" height="60"></a>
