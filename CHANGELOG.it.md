@@ -7,6 +7,12 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.48.2 — rifiniture dell'interfaccia
+
+Questa versione riorganizza alcuni comandi e ottimizza il layout in diverse aree dell'interfaccia.
+
+---
+
 ## 1.48.1 — la barra segue la destinazione
 
 La barra degli strumenti mostra solo i pulsanti che hanno senso per la scheda selezionata: i

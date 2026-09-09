@@ -7,6 +7,13 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.48.2 — interface refinements
+
+This release reorganizes a few commands and optimizes the layout in several areas of the
+interface.
+
+---
+
 ## 1.48.1 — toolbar follows the destination
 
 The toolbar now shows only the buttons that make sense for the selected tab: service commands and
