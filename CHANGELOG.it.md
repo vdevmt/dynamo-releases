@@ -7,6 +7,17 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.48.3 — segnalazioni e aggiornamenti più semplici
+
+Ora si può segnalare un problema o proporre qualcosa direttamente dal menu "?" o dalla finestra
+Informazioni: entrambi aprono un modulo già pronto su questa pagina. Il controllo degli
+aggiornamenti è ora un semplice interruttore acceso/spento, verificato in automatico a ogni
+apertura del programma, invece di un numero di giorni. Il programma di installazione può aprire
+DYNAMO in automatico appena finito il setup, con una casella nell'ultima schermata. Chiude il
+rilascio qualche rifinitura minore dell'interfaccia.
+
+---
+
 ## 1.48.2 — rifiniture dell'interfaccia
 
 Questa versione riorganizza alcuni comandi e ottimizza il layout in diverse aree dell'interfaccia.

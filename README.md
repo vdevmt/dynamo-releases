@@ -69,8 +69,9 @@ installer for your language, verifies it against the checksum published with it,
 DYNAMO closes so it can replace the files in use, exactly as if you had run the new installer by
 hand.
 
-How often it checks is set in *Settings > Updates*, from every day to never — zero leaves only the
-on-demand check, the right choice on a server where outbound connections are restricted by policy.
+Whether it checks is set in *Settings > Updates*, "Automatically check for updates" — on by
+default, checked at every startup. Turning it off leaves only the on-demand check, the right
+choice on a server where outbound connections are restricted by policy.
 
 ### Silent installation
 

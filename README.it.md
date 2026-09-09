@@ -72,9 +72,10 @@ scarica l'installer della propria lingua, si verifica contro l'impronta pubblica
 si avvia; DYNAMO si chiude perché possa sostituire i file in uso, esattamente come lanciando a
 mano il nuovo installer.
 
-Ogni quanto controlla si imposta in *Impostazioni > Aggiornamenti*, da ogni giorno a mai — zero
-lascia solo il controllo a richiesta, la scelta giusta su un server dove le connessioni in uscita
-sono vietate per policy.
+Se controlla si imposta in *Impostazioni > Aggiornamenti*, «Verifica automaticamente gli
+aggiornamenti» — attiva di default, controlla a ogni apertura. Disattivandola resta solo il
+controllo a richiesta, la scelta giusta su un server dove le connessioni in uscita sono vietate
+per policy.
 
 ### Installazione silenziosa
 
