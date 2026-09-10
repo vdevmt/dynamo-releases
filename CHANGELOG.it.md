@@ -7,6 +7,19 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.48.4 — più sicurezza sui sistemi di produzione
+
+Una revisione di tutte le operazioni che scrivono su Business Central ha stretto i punti in cui un
+comando faceva più di quanto la conferma dicesse. In locale un'estensione da cui dipendono altre
+estensioni installate non viene più disinstallata — vengono elencate e vanno tolte prima, come
+online — e ripubblicare la stessa versione in ForceSync ora rimette al loro posto quelle
+estensioni, con i loro dati. Le conferme nominano il server o il tenant vero di ogni destinazione,
+la seconda conferma di ForceSync parte da "No", un ambiente online viene ricontrollato subito prima
+di essere eliminato, e un elenco importato viene verificato prima di essere usato. Gli elenchi di
+estensioni si leggono meglio, e la coda delle attività mantiene i colori anche in inglese.
+
+---
+
 ## 1.48.3 — segnalazioni e aggiornamenti più semplici
 
 Ora si può segnalare un problema o proporre qualcosa direttamente dal menu "?" o dalla finestra

@@ -7,6 +7,19 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.48.4 — safer operations on production systems
+
+A review of every operation that writes to Business Central tightened the points where a command
+did more than its confirmation said. On premises, an extension that other installed extensions
+depend on is no longer uninstalled — they are listed and must go first, as online — and
+republishing the same version in ForceSync now puts those extensions back, with their data.
+Confirmations name the real server or tenant of every target, the second ForceSync confirmation
+starts on "No", an online environment is checked again right before it is deleted, and an imported
+list is checked before it is used. Lists of extensions are easier to read, and the activity queue
+keeps its colors in English too.
+
+---
+
 ## 1.48.3 — report problems, simpler update checks
 
 You can now report a problem or suggest something straight from the "?" menu or the About window:
