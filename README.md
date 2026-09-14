@@ -25,6 +25,7 @@ outcome of every operation kept in a queue you can read at your own pace.
 | Publishing (single .app or whole folder) | ✔ | ✔ |
 | Reading and changing the service configuration | ✔ | — (no API exposes it) |
 | Environment operations (copy, restore, update window) | — | ✔ |
+| Scheduled operations (update window, next update) | — | ✔ |
 
 ---
 
@@ -183,7 +184,8 @@ They are disabled on online tabs, where there is no service to command.
 **Extension management** reads the extensions of the current target and shows them with name,
 publisher, version, state, how they were published and their identifier. It sorts by column and
 filters on three axes that combine: state, publisher and free text. From there you synchronize,
-install, uninstall and unpublish.
+install, uninstall and unpublish. On premises you also run the **data upgrade** of a new version
+already published, on the extensions that need it — synchronizing it first when required.
 
 Uninstalling **never deletes data**, on any target type: the command that would erase an
 extension's tables is not reachable from here. On online environments the confirmation first tells
@@ -191,8 +193,9 @@ you what depends on the extension and must go first, and whether a version is al
 which matters, because uninstalling does not remove a scheduled version and the extension would
 reinstall itself later on its own.
 
-Only on premises there is a **Sync** column: an extension published but not synchronized does not
-work, and that is not visible anywhere else.
+Only on premises there are the **Sync** and **Data upgrade** columns: an extension published but not
+synchronized does not work, and that is not visible anywhere else; the second marks the version
+waiting for its data upgrade.
 
 **Publishing** takes a single `.app` or a whole folder, and works out the order from the
 dependencies declared inside each package. The order is shown before you confirm and **can be
@@ -200,6 +203,15 @@ changed** — moving an app before one it depends on warns you but does not stop
 dependency may already be installed. Each app gets its own row in the queue, with state, duration
 and error, so you can leave the desk and see on your return what went through. If one app fails the
 others go on; only those that depended on it are skipped, because they would fail anyway.
+
+Online the installation can also wait for the environment's **update window**, or for its next minor
+or major update. An environment with no update window refuses the first choice, and nothing is sent
+to it.
+
+On premises, when Business Central requires a data upgrade for the new version — even when the
+previous one is uninstalled but its data is still there — the publish runs it and installs the
+extension. You can untick it in the dialog: the package is then published and synchronized, and you
+run the upgrade later from Extension Management.
 
 **Compare extensions** puts the extensions of two targets side by side — even targets of different
 kinds, on different tabs — and shows what differs.
@@ -213,12 +225,17 @@ Create, copy, rename and delete an environment; restore it to a point in time or
 bin; set the update window and schedule the update; and read the environment's event log — creation,
 copy, rename, deletion, updates, app installations.
 
+**Scheduled operations** lists what will run later on its own — per-tenant extensions waiting for
+the update window or the next update, app updates sent to the window, the next environment update —
+and cancels what Business Central allows to be cancelled.
+
 **App updates** live inside extension management: the *Available version* column carries the version
 you can move to, and you update either straight away or in the environment's update window. Apps
 that have to be updated first are queued too, and before it: the confirmation lists the whole chain
 in the order it will happen. This covers apps installed from the marketplace, partner apps included;
 per-tenant extensions have no available version here — they are updated by publishing the new
-package.
+package. When a new version of a per-tenant extension is already scheduled, its row says **Update
+scheduled**, shows that version, and **Cancel scheduling** removes it.
 
 ### Service configuration (on premises)
 

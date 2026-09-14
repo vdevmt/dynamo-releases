@@ -7,6 +7,20 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.48.5 — scheduled operations and data upgrades
+
+Online, an extension can now be published in the environment's update window, and a new
+**Scheduled operations** window lists what will run later on its own — extensions waiting for the
+update window or the next update, app updates, the next environment update — and cancels what
+Business Central allows. In Extension Management a per-tenant extension with a new version already
+scheduled says so, and the schedule can be removed from there. On premises, publishing no longer
+fails when Business Central requires a data upgrade — for example after the previous version was
+uninstalled with its data still there: the upgrade runs, or can be left for later with the new
+**Upgrade data** command and the **Data upgrade** column of Extension Management. The toolbar now
+adapts to the window width, and tabs show the target type with an icon.
+
+---
+
 ## 1.48.4 — safer operations on production systems
 
 A review of every operation that writes to Business Central tightened the points where a command

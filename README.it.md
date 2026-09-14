@@ -26,6 +26,7 @@ leggere con calma.
 | Pubblicazione (singolo .app o intera cartella) | ✔ | ✔ |
 | Lettura e modifica della configurazione | ✔ | — (nessuna API la espone) |
 | Operazioni sugli ambienti (copia, ripristino, finestra) | — | ✔ |
+| Operazioni pianificate (finestra, prossimo aggiornamento) | — | ✔ |
 
 ---
 
@@ -187,7 +188,9 @@ esecuzione. Sulle schede online sono spenti: non c'è un servizio da comandare.
 **Gestione estensioni** legge le estensioni della destinazione corrente e le mostra con nome,
 publisher, versione, stato, come sono state pubblicate e identificativo. Si ordina per colonna e si
 filtra su tre assi che si combinano: stato, publisher e testo libero. Da lì si sincronizza, si
-installa, si disinstalla e si annulla la pubblicazione.
+installa, si disinstalla e si annulla la pubblicazione. In locale si lancia anche l'**aggiornamento dei
+dati** di una versione nuova già pubblicata, sulle estensioni che lo richiedono — sincronizzandola prima
+quando serve.
 
 La disinstallazione **non cancella mai i dati**, su nessun tipo di destinazione: il comando che
 cancellerebbe le tabelle dell'estensione non è raggiungibile da qui. Sugli ambienti online la
@@ -195,8 +198,9 @@ conferma dice prima che cosa dipende dall'estensione e va tolto per primo, e se 
 **pianificata** — cosa che conta, perché la disinstallazione non rimuove una versione pianificata e
 l'estensione si reinstallerebbe da sola più tardi.
 
-Solo in locale c'è la colonna **Sync**: un'estensione pubblicata ma non sincronizzata non funziona,
-e questo non si vede da nessun'altra parte.
+Solo in locale ci sono le colonne **Sync** e **Aggiornamento dati**: un'estensione pubblicata ma non
+sincronizzata non funziona, e questo non si vede da nessun'altra parte; la seconda segna la versione
+che aspetta l'aggiornamento dei dati.
 
 **La pubblicazione** accetta un singolo `.app` o un'intera cartella, e ricava l'ordine dalle
 dipendenze dichiarate dentro ogni pacchetto. L'ordine si vede prima di confermare e **si può
@@ -205,6 +209,15 @@ quella dipendenza potrebbe essere già installata. Ogni app ha una riga sua nell
 durata ed errore, così ci si può alzare dalla scrivania e al ritorno vedere che cosa è passato. Se
 un'app fallisce le altre proseguono; vengono saltate solo quelle che dipendevano da lei, perché
 fallirebbero comunque.
+
+Online l'installazione può anche attendere la **finestra di aggiornamento** dell'ambiente, oppure il
+suo prossimo aggiornamento minore o maggiore. Un ambiente senza finestra di aggiornamento rifiuta la
+prima scelta, e non riceve nulla.
+
+In locale, quando Business Central richiede l'aggiornamento dei dati per la versione nuova — anche se
+la precedente è disinstallata ma i suoi dati ci sono ancora — la pubblicazione lo esegue e installa
+l'estensione. Nel dialog si può togliere la spunta: il pacchetto viene allora pubblicato e
+sincronizzato, e l'aggiornamento si lancia dopo da Gestione estensioni.
 
 **Confronto estensioni** mette a confronto le estensioni di due destinazioni — anche di tipo diverso
 e su schede diverse — e mostra che cosa cambia.
@@ -218,12 +231,19 @@ Creazione, copia, rinomina e cancellazione di un ambiente; ripristino a un istan
 cestino; finestra di aggiornamento e pianificazione dell'aggiornamento; e il registro eventi
 dell'ambiente — creazione, copia, rinomina, cancellazione, aggiornamenti, installazioni di app.
 
+**Operazioni pianificate** elenca ciò che partirà più tardi da solo — le estensioni per tenant in
+attesa della finestra di aggiornamento o del prossimo aggiornamento, gli aggiornamenti di app
+mandati nella finestra, il prossimo aggiornamento dell'ambiente — e annulla ciò che Business Central
+consente di annullare.
+
 **Gli aggiornamenti delle app** stanno dentro la gestione estensioni: la colonna *Versione
 disponibile* porta la versione a cui si può passare, e si aggiorna subito oppure nella finestra di
 aggiornamento dell'ambiente. Le app che vanno aggiornate prima entrano anch'esse in coda, e prima:
 la conferma elenca l'intera catena nell'ordine in cui avverrà. Riguarda le app installate dal
 marketplace, comprese quelle dei partner; le estensioni per tenant qui non hanno una versione
-disponibile — si aggiornano pubblicando il pacchetto nuovo.
+disponibile — si aggiornano pubblicando il pacchetto nuovo. Quando una versione nuova di
+un'estensione per tenant è già pianificata, la sua riga dice **Aggiornamento pianificato**, mostra
+quella versione, e **Annulla pianificazione** la toglie.
 
 ### Configurazione del servizio (locale)
 

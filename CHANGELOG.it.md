@@ -7,6 +7,21 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.48.5 — operazioni pianificate e aggiornamento dei dati
+
+Online un'estensione si può ora pubblicare nella finestra di aggiornamento dell'ambiente, e la nuova
+finestra **Operazioni pianificate** elenca ciò che partirà più tardi da solo — estensioni in attesa
+della finestra o del prossimo aggiornamento, aggiornamenti di app, il prossimo aggiornamento
+dell'ambiente — e annulla ciò che Business Central consente. In Gestione estensioni un'estensione
+per tenant con una versione nuova già pianificata lo dice, e la pianificazione si toglie da lì. In
+locale la pubblicazione non fallisce più quando Business Central richiede l'aggiornamento dei dati —
+per esempio dopo che la versione precedente è stata disinstallata con i dati ancora presenti:
+l'aggiornamento viene eseguito, oppure si rimanda con il nuovo comando **Aggiorna dati** e la colonna
+**Aggiornamento dati** di Gestione estensioni. La barra degli strumenti ora si adatta alla larghezza
+della finestra, e le schede mostrano il tipo di destinazione con un'icona.
+
+---
+
 ## 1.48.4 — più sicurezza sui sistemi di produzione
 
 Una revisione di tutte le operazioni che scrivono su Business Central ha stretto i punti in cui un
