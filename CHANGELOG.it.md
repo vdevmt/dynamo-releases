@@ -7,6 +7,60 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.49.0 — catalogo AppSource, servizi web e API, cronologia locale
+
+**Nuove funzioni**
+- **Catalogo AppSource**: tutte le app per Business Central pubblicate per il mercato dell'ambiente,
+  già elencate e filtrabili per nome ed editore, con la scheda completa di ciascuna. Da lì si
+  installano, o si aggiornano se sono già presenti.
+- **Servizi web e API** (nuovo menu Sviluppo): cosa una destinazione espone su OData V4, API e
+  SOAP — comprese le API delle app installate — con indirizzi pronti, campi, metodi ed esempi di
+  richiesta, risposta ed errore da incollare in un documento tecnico.
+- **Simboli AL**: da Gestione estensioni si scaricano i simboli delle app installate su una
+  destinazione, dai feed pubblici oppure direttamente dalla destinazione, che fornisce anche quelli
+  delle per-tenant extension. Dal menu Sviluppo, «Scarica simboli Microsoft» prende dai feed
+  pubblici i simboli delle app Microsoft per una localizzazione e una versione, senza bisogno di una
+  destinazione.
+- **Cronologia locale**: le operazioni che modificano una destinazione, lanciate da questo
+  computer, restano in un registro locale con le opzioni scelte, i passi eseguiti e l'eventuale
+  messaggio di errore.
+- **Collegamenti nella scheda**: accanto alle destinazioni, una linguetta con i siti, le cartelle e
+  le condivisioni di rete che le riguardano — il portale del cliente, la documentazione, la
+  cartella dei pacchetti.
+
+**Coda delle attività**
+- **Le operazioni sulle estensioni aspettano che la destinazione sia pronta**: prima di ogni
+  operazione su un'estensione, DYNAMO verifica che l'ambiente online non sia in aggiornamento e che
+  non ci sia già un'altra distribuzione in corso — di un collega, da VS Code o da dentro Business
+  Central —, e su un server che il servizio dell'istanza sia in esecuzione. Se la destinazione è
+  occupata l'operazione resta in coda e parte da sola appena si libera; «Avvia adesso» scavalca
+  l'attesa.
+- **Riprova dalla coda**: una riga non riuscita si rilancia con le stesse opzioni del primo
+  tentativo, senza ripartire dal menu; «Riprova non riuscite» le rilancia tutte insieme.
+
+**Destinazioni**
+- **Scheda informativa**: mostra le sessioni aperte e, sugli ambienti online, le distribuzioni in
+  corso — le due cose da sapere prima di fermare un servizio o lanciare una pubblicazione. Accanto
+  alla versione di Business Central, «Novità della …» apre le note di rilascio Microsoft di
+  quell'aggiornamento, e lo stesso accanto alla versione di destinazione del prossimo.
+
+**Altre modifiche**
+- **Aggiungi scheda** sostituisce «Aggiungi server» e «Aggiungi tenant», e offre un terzo tipo: una
+  scheda senza destinazioni, fatta di soli collegamenti. Una scheda locale resta in elenco anche
+  quando la rilevazione non trova servizi.
+- I collegamenti si possono raccogliere in **gruppi**, che viaggiano con l'elenco esportato.
+- Un nuovo esito **Programmata** nella coda, per ciò che l'ambiente ha accettato ma non ha ancora
+  eseguito, distinto da *Saltata*, che non si farà.
+- In Gestione estensioni un'app con un aggiornamento disponibile dice **Da aggiornare** nella
+  colonna Stato.
+- La colonna su cui si ordina una griglia mostra una freccia, e la coda delle attività resta sempre
+  in ordine di arrivo.
+- All'avvio, con Business Central installato sul computer, la scheda localhost è già pronta e si
+  allinea da sola alle istanze installate; aprendo il web client, la company usata l'ultima volta
+  sta in cima all'elenco.
+
+---
+
 ## 1.48.5 — operazioni pianificate e aggiornamento dei dati
 
 Online un'estensione si può ora pubblicare nella finestra di aggiornamento dell'ambiente, e la nuova

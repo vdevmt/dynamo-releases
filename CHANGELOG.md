@@ -7,6 +7,57 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.49.0 — AppSource catalog, web services and APIs, local history
+
+**New features**
+- **AppSource catalog**: every Business Central app published for the environment's market, already
+  listed and filterable by name and publisher, with the full details of each one. You install them
+  from there, or update them if they are already installed.
+- **Web services and APIs** (new Development menu): what a target exposes over OData V4, API and
+  SOAP — installed apps' APIs included — with ready addresses, fields, methods and sample request,
+  response and error to paste into a technical document.
+- **AL symbols**: from Extension Management you download the symbols of the apps installed on a
+  target, from the public feeds or straight from the target, which also provides those of
+  per-tenant extensions. From the Development menu, "Download Microsoft symbols" fetches from the
+  public feeds the symbols of Microsoft apps for a localization and a version, with no target
+  needed.
+- **Local history**: the operations that change a target, started from this computer, are kept in a
+  local log with the options chosen, the steps run and the error message, if any.
+- **Links in the tab**: next to the targets, a tab with the websites, folders and network shares
+  that belong to them — the customer's portal, the documentation, the package folder.
+
+**Job queue**
+- **Extension operations wait until the target is ready**: before any operation on an extension,
+  DYNAMO checks that the online environment is not being updated and has no other deployment
+  running — a colleague's, from VS Code or from inside Business Central —, and on a server that the
+  instance service is running. If the target is busy the operation stays queued and starts on its
+  own as soon as it frees up; "Start now" skips the wait.
+- **Retry from the queue**: an unsuccessful row runs again with the options of the first attempt,
+  without going back through the menu; "Retry unsuccessful" runs them all again at once.
+
+**Targets**
+- **Details card**: shows the open sessions and, on online environments, the running deployments —
+  the two things to know before stopping a service or starting a publish. Next to the Business
+  Central version, "What's new in …" opens Microsoft's release notes for that update, and the same
+  next to the target version of the next one.
+
+**Other changes**
+- **Add tab** replaces "Add server" and "Add tenant", and offers a third type: a tab with no
+  targets, made of links only. An on-premises tab now stays in the list even when the discovery
+  finds no services.
+- Links can be gathered into **groups**, which travel with the exported list.
+- A new **Scheduled** outcome in the queue, for what the environment accepted but has not run yet,
+  kept apart from *Skipped*, which will not happen.
+- In Extension Management an app with an available update says **Update available** in the Status
+  column.
+- The column a grid is sorted by shows an arrow, and the activity queue always stays in arrival
+  order.
+- On start, with Business Central installed on the computer, the localhost tab is ready and realigns
+  itself with the installed instances; opening the web client, the company used last is at the top
+  of the list.
+
+---
+
 ## 1.48.5 — scheduled operations and data upgrades
 
 Online, an extension can now be published in the environment's update window, and a new

@@ -26,6 +26,16 @@ outcome of every operation kept in a queue you can read at your own pace.
 | Reading and changing the service configuration | ✔ | — (no API exposes it) |
 | Environment operations (copy, restore, update window) | — | ✔ |
 | Scheduled operations (update window, next update) | — | ✔ |
+| AppSource catalog (install and update marketplace apps) | — | ✔ |
+| Local history of the operations started from this computer | ✔ | ✔ |
+
+![DYNAMO on an on-premises server: the service instances with their status, and the activity queue below](assets/dynamo-demo-onprem.png)
+
+*On premises — the instances of a server, with the activity queue below.*
+
+![DYNAMO on a Business Central online tenant: the environments with their status, type and version](assets/dynamo-demo-saas.png)
+
+*Online — the environments of a tenant, in the same window and the same queue.*
 
 ---
 
@@ -117,12 +127,19 @@ the tenant. With the default sign-in mode there is nothing to prepare in Azure.
 
 ## First run — building the list
 
-The list starts **empty**.
+The list starts **empty**. If Business Central is installed on the computer itself, though, it
+starts with the **localhost** tab and the instances found, and on every start that tab realigns
+itself with the installed ones.
 
-- **On premises**: *Tools > Add server*. Give the server name and the Business Central services
-  installed on it are discovered and added to the tab.
-- **Online**: *Tools > Add tenant*. Give the tenant domain (`contoso.onmicrosoft.com`) or its
-  identifier, and the environments are listed after you sign in.
+Tabs are created from *Tools > Add tab*, or from the first toolbar button: you type the label and
+choose the type.
+
+- **On premises**: give the server name and the Business Central services installed on it are
+  discovered and added to the tab. The tab stays even when nothing is found: the server may simply
+  be off.
+- **Online**: give the tenant domain (`contoso.onmicrosoft.com`) or its identifier, and the
+  environments are listed after you sign in.
+- **None**: a tab with no targets, made of links only.
 
 The list saves itself on every change. It can be **exported and imported**, so a colleague can start
 from yours without retyping anything — your own preferences are never carried along with it.
@@ -166,10 +183,18 @@ They are disabled on online tabs, where there is no service to command.
   web addresses, selectable so they can be copied. For an on-premises instance, the server, the
   instance, the Windows service name and the administration module path actually used, which is the
   first thing to look at when the module fails to load. Values Business Central does not provide
-  stay empty rather than being guessed.
+  stay empty rather than being guessed. Next to the Business Central version, **What's new in …**
+  opens the page Microsoft publishes for that update — and the same next to the version an
+  environment is about to move to, so the news can be read *before* updating. The link appears only
+  where the page exists.
+  The card also tells how the target is doing right now: how many sessions are open and, for an
+  online environment, which extensions are being deployed to it. Both can be clicked and open the
+  full list or the event log. If a value cannot be read the row says *not available* and why: it
+  never shows zero.
 - **Open web client** — opens the environment or the instance in your default browser, on the
   company you choose, so the Business Central company selection does not appear. The company you
-  picked last on that target comes back selected; with a single company it opens straight away. On
+  picked last on that target comes back selected, at the top of the list with a star; with a single
+  company it opens straight away. On
   a server the question comes only where the service does not already declare a default company.
 - **Configuration for VS Code** — produces the configuration to paste into `launch.json` to develop
   against that target, with the values read from the service. From *Active sessions* you also get
@@ -191,11 +216,13 @@ Uninstalling **never deletes data**, on any target type: the command that would 
 extension's tables is not reachable from here. On online environments the confirmation first tells
 you what depends on the extension and must go first, and whether a version is already scheduled —
 which matters, because uninstalling does not remove a scheduled version and the extension would
-reinstall itself later on its own.
+reinstall itself later on its own. An uninstall is always asked for now; the environment can still
+postpone it to its own update, and when it does the queue row ends **Scheduled** and says so.
 
 Only on premises there are the **Sync** and **Data upgrade** columns: an extension published but not
 synchronized does not work, and that is not visible anywhere else; the second marks the version
-waiting for its data upgrade.
+waiting for its data upgrade — also when it is the data that is behind the package, which the **Data
+version** column shows: the version the extension's data is at on the tenant.
 
 **Publishing** takes a single `.app` or a whole folder, and works out the order from the
 dependencies declared inside each package. The order is shown before you confirm and **can be
@@ -223,19 +250,42 @@ extension goes away.
 
 Create, copy, rename and delete an environment; restore it to a point in time or from the recycle
 bin; set the update window and schedule the update; and read the environment's event log — creation,
-copy, rename, deletion, updates, app installations.
+copy, rename, deletion, updates, app installations. The log tells the whole story, not only what went
+through the administration center: deployments made from Visual Studio Code and from inside Business
+Central are listed too, in date order, and a **Source** column says where each row comes from — those
+recorded by Business Central do not say who started them, when they ended or why they failed.
 
 **Scheduled operations** lists what will run later on its own — per-tenant extensions waiting for
 the update window or the next update, app updates sent to the window, the next environment update —
 and cancels what Business Central allows to be cancelled.
 
 **App updates** live inside extension management: the *Available version* column carries the version
-you can move to, and you update either straight away or in the environment's update window. Apps
+you can move to, and the *Status* column says **Update available**, in amber, instead of
+*Installed*, so sorting by status groups the apps to update. You update either straight away or in
+the environment's update window. Apps
 that have to be updated first are queued too, and before it: the confirmation lists the whole chain
 in the order it will happen. This covers apps installed from the marketplace, partner apps included;
 per-tenant extensions have no available version here — they are updated by publishing the new
 package. When a new version of a per-tenant extension is already scheduled, its row says **Update
 scheduled**, shows that version, and **Cancel scheduling** removes it.
+
+**AppSource catalog** opens already full: every Business Central app published for the market of the
+highlighted environment, alphabetical, filtered by typing part of the app name or the publisher's —
+with one click on Microsoft or on the publishers the environment already has apps from. Each row
+says who publishes it, the version installed, the version available — what would arrive if you
+pressed the button — and whether the app is installed, not installed or to be updated. For the
+highlighted app you read what the marketplace says about it: what it does, how it is priced, its
+rating, its categories and the links to license terms, privacy policy and support; a double click
+opens the publisher's page. The window says how many apps there are, for which market and when the
+list was read, and *Refresh list* reads it again. Apps whose publisher asks to be contacted first stay
+in the list, but cannot be installed from here.
+
+**Install** asks for a confirmation that names the extension and the environment, shows the
+publisher's terms and privacy policy, and stays off until you tick that you accept them. Installing
+is not buying: the license stays a matter between the customer and the publisher. On an app that
+already has an update the same button becomes **Update**, and goes to the version *the environment*
+offers, which can be behind the latest one published. Both go through the activity queue like any
+other extension operation, and can wait for the environment's update window.
 
 ### Service configuration (on premises)
 
@@ -243,6 +293,45 @@ All the configuration keys of an instance, grouped by area and with the descript
 does. Two instances can be **compared**, showing only the keys that differ — the fastest way to find
 out why one server behaves unlike another. A key can be changed from here, behind a confirmation
 that names the instance.
+
+### Tab links
+
+Next to the targets tab, every tab has one with its **links**: the description and address of a
+website, a local folder or a network share. They keep next to the target the things that belong to it — the
+customer's portal, the documentation, the folder with the packages. They are added, edited,
+reordered and opened on a double click; they travel with the exported list, so whoever receives it
+gets them too. A link that points to a program or a script asks for confirmation before running it,
+naming the file.
+
+Links can be gathered into **groups**, created from the same *Add* button, so a tab with twenty
+entries stays readable. A link goes into a group by dragging it onto it or from the right-click menu,
+a group opens and closes on its triangle, and deleting a group does not delete the links it holds.
+Groups travel with the exported list too.
+
+![The links tab of a server: customer portal, documentation, package and backup folders](assets/dynamo-demo-links.png)
+
+### Development
+
+**Download Microsoft symbols** fetches Microsoft's AL symbol packages from the public feeds, with no
+target and no sign-in: you choose the localization and the Business Central version, and you get the
+base set — System, System Application, Business Foundation, Base Application, Application — plus
+the other Microsoft apps you tick.
+
+**Download symbols**, in extension management, fetches the symbols of the highlighted extension at
+the version installed on that target and, on request, its dependencies. They come either from the
+public feeds, for Microsoft and AppSource apps, or **straight from the target** through its
+development services, as VS Code does — per-tenant extensions included; online this works on
+sandboxes, not on Production environments.
+
+**Web services and APIs** shows what a target publishes to the outside, and only reads: every
+service with the protocol it answers on — OData V4, API, SOAP — and the address it is called at,
+already filled in with the company. For each service, its fields with type, length and key, and its
+methods with the parameters in the order they must be passed and the returned value; on SOAP
+services the parameters the procedure modifies are marked as such. Three more tabs — **Payload**,
+**Response** and **Error** — hold the examples a technical document needs: what you send, what comes
+back and what an error looks like, ready to paste into the document or into Postman. The APIs that
+installed apps publish on an address of their own are shown too, and every list copies whole, with
+its column headings, into a spreadsheet.
 
 ---
 
@@ -268,9 +357,11 @@ interruption stops the application, not what the server has already started.
 
 ### Reading the results
 
-The status text is coloured: green completed, red error, amber skipped, blue running. A truncated
-error opens in full with the **...** button, and the message at the bottom of the window opens in a
-readable window when you click it.
+The status text is coloured: green completed, red error, amber skipped, blue running, purple
+scheduled. **Scheduled** is for what the environment accepted but has not run yet — a publish sent
+to the update window or to a future version — as opposed to *Skipped*, which will not happen. A
+truncated error opens in full with the **...** button, and the message at the bottom of the window
+opens in a readable window when you click it.
 
 When a publish to an online environment fails, the reason written by Business Central is reported
 **in the job**, with the time and the identifier of the operation, so there is nothing else to open.
@@ -279,6 +370,61 @@ yet — and the job says so instead of leaving you guessing.
 
 *Check status* produces an itemised report: one row per check, with outcome and cause, failed rows
 highlighted.
+
+### Waiting until the target is ready
+
+Before an operation on an extension — publish, install, uninstall, unpublish, synchronize, data
+upgrade, update — DYNAMO checks three things: that the online environment is not being prepared,
+updated or removed; that no other deployment is already running on it, even one started by a
+colleague, from VS Code or from inside Business Central; and, on a server, that the instance service
+is running. If something is off, the row stays *Queued* with the reason and the seconds left before
+the next check, and the operation starts on its own as soon as the way is clear. Work on the other
+targets keeps starting meanwhile. Starting, stopping and restarting services are never held back.
+
+After half an hour of waiting the row ends *Skipped*, with the reason written, and nothing has been
+touched. A deployment that Business Central left hanging — it never closes an interrupted one — stops
+being waited for after four hours; the limit is set in *Tools > Settings > Execution*, "Stop waiting
+for a deployment after (hours)", and with 0 it is always waited for.
+
+When it is the wrong row that is waiting, **Start now**, the button at the end of the row, skips the
+wait. The confirmation names the target and repeats the reason, because if the target is really busy
+Business Central can refuse the operation.
+
+### Retrying a row
+
+A row that did not do its job can be retried from the queue, and it starts again with the options it
+started with — sync mode, unpublish previous versions, delete the files afterwards, data removal —
+without going back through the menu. The button shows on rows in error and on rows *Skipped* because
+the wait expired; the other skips, such as a version already there or a missing dependency, would
+only give the same skip again. **Retry unsuccessful**, above the list, puts them all back at once.
+The failed row stays in the list: the new attempt is a new row.
+
+Operations that can lose data or interrupt a service ask for confirmation again, naming the target
+and the options they restart with. Creating, copying, renaming, deleting and restoring an online
+environment are never retried: they keep running on Microsoft's servers even when DYNAMO loses track
+of them, and doing them again blindly could create a second environment or act on the wrong one.
+
+---
+
+## Local history
+
+*Activity > Local history* is the record of the maintenance done **from this computer**. Only what
+changes an instance or an environment goes in — start, stop and restart, publishing, installing,
+uninstalling, synchronizing, data upgrades, license import, configuration changes, ending a session,
+and creating, copying, renaming, deleting and restoring environments. Looking at a list changes
+nothing, so it does not appear.
+
+Every entry carries date and time, user, server or tenant, instance or environment, operation,
+subject and outcome — *Succeeded*, *Error*, *Skipped*, *Scheduled*, *Cancelled*. The box at the
+bottom shows the steps of the highlighted row — for a publish, each command run on Business Central
+— the options chosen in the window before it, and the full error message. The window opens on the
+highlighted target, and a drop-down widens it to the whole tab or to the whole record; columns sort
+on a click, and the list narrows by text, outcome and month.
+
+It is not the environment's event log: that is what Business Central recorded on the environment,
+this is what you did from here. It stays on this machine and is never sent anywhere. One file per
+month, the last twelve are kept, and *Tools > Settings > Local history* turns it off. The value of a
+configuration key with "Password" or "Secret" in its name is never recorded.
 
 ---
 
@@ -295,6 +441,10 @@ With a single highlighted row the two coincide, which is the normal case.
 Every function acting on several rows asks for **confirmation, saying how many and which targets
 will be touched**. Confirmations that would interrupt a service start on "No".
 
+Clicking a column header sorts the grid, and an **arrow** next to the title says which column is in
+charge and in which direction — up for ascending, down for descending. The activity queue is the
+exception: it cannot be sorted, and always stays in the order the rows were queued.
+
 ---
 
 ## Where the settings live
@@ -306,8 +456,9 @@ will be touched**. Confirmations that would interrupt a service start on "No".
 | Sign-in token cache (encrypted) | `%LOCALAPPDATA%\Dynamo\` |
 | On-premises server accounts | Windows Credential Manager, `DYNAMO:<server>` |
 | Unexpected error details (most recent kept) | `%APPDATA%\Dynamo\errors.log` |
+| Maintenance record for instances and environments (one file per month, last twelve) | `%APPDATA%\Dynamo\history\` |
 
-*File > Settings* shows the path of the folder and opens it: that is the folder to copy for a
+*Tools > Settings* shows the path of the folder and opens it: that is the folder to copy for a
 backup, or to move the configuration to another machine.
 
 They are **two files on purpose**. The list is exported and shared; the preferences belong to
@@ -318,7 +469,7 @@ away.
 
 ## Language and regional settings
 
-The application speaks **English or Italian**, chosen in *File > Settings*. The first run starts from
+The application speaks **English or Italian**, chosen in *Tools > Settings*. The first run starts from
 the Windows language and writes it into the configuration; from then on your choice rules, not the
 machine. On a Windows that is neither, it starts in English. The change takes effect at the next
 start — windows already built do not rewrite themselves — and the dialog says so when you confirm.

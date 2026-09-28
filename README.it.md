@@ -27,6 +27,16 @@ leggere con calma.
 | Lettura e modifica della configurazione | ✔ | — (nessuna API la espone) |
 | Operazioni sugli ambienti (copia, ripristino, finestra) | — | ✔ |
 | Operazioni pianificate (finestra, prossimo aggiornamento) | — | ✔ |
+| Catalogo AppSource (installa e aggiorna app del marketplace) | — | ✔ |
+| Cronologia locale delle operazioni lanciate da questo computer | ✔ | ✔ |
+
+![DYNAMO su un server locale: le istanze di servizio con il loro stato, e sotto la coda delle attività](assets/dynamo-demo-onprem.png)
+
+*Locale — le istanze di un server, e sotto la coda delle attività.*
+
+![DYNAMO su un tenant Business Central online: gli ambienti con stato, tipo e versione](assets/dynamo-demo-saas.png)
+
+*Online — gli ambienti di un tenant, nella stessa finestra e nella stessa coda.*
 
 ---
 
@@ -120,13 +130,19 @@ Central sul tenant. Con il modo di accesso predefinito non c'è nulla da prepara
 
 ## Primo avvio — costruire l'elenco
 
-L'elenco parte **vuoto**.
+L'elenco parte **vuoto**. Se Business Central è installato sul computer stesso, invece, si parte
+dalla scheda **localhost** con le istanze trovate, e a ogni avvio la scheda si allinea da sola a
+quelle installate.
 
-- **Locale**: *Strumenti > Aggiungi server*. Si indica il nome del server e i servizi Business
-  Central installati su di esso vengono rilevati e aggiunti alla scheda.
-- **Online**: *Strumenti > Aggiungi tenant*. Si indica il dominio del tenant
-  (`contoso.onmicrosoft.com`) o il suo identificativo, e dopo l'accesso vengono elencati gli
-  ambienti.
+Le schede si creano da *Strumenti > Aggiungi scheda*, o dal primo pulsante della barra: si scrive
+l'etichetta e si sceglie il tipo.
+
+- **Locale**: si indica il nome del server e i servizi Business Central installati su di esso
+  vengono rilevati e aggiunti alla scheda. La scheda resta anche se non si trova niente: il server
+  può essere semplicemente spento.
+- **Online**: si indica il dominio del tenant (`contoso.onmicrosoft.com`) o il suo identificativo, e
+  dopo l'accesso vengono elencati gli ambienti.
+- **Nessuno**: una scheda senza destinazioni, fatta di soli collegamenti.
 
 L'elenco si salva da solo a ogni modifica. Si può **esportare e importare**, così un collega parte
 dal tuo senza riscrivere niente — le tue preferenze non viaggiano mai insieme all'elenco.
@@ -170,10 +186,18 @@ esecuzione. Sulle schede online sono spenti: non c'è un servizio da comandare.
   dimensione del database e gli indirizzi web, selezionabili per poterli copiare. Per un'istanza
   locale: il server, l'istanza, il nome del servizio Windows e il percorso del modulo di
   amministrazione effettivamente usato — la prima cosa da guardare quando il modulo non si carica.
-  I valori che Business Central non fornisce restano vuoti invece di essere inventati.
+  I valori che Business Central non fornisce restano vuoti invece di essere inventati. Accanto alla
+  versione di Business Central, **Novità della …** apre la pagina che Microsoft pubblica per
+  quell'aggiornamento — e lo stesso accanto alla versione a cui un ambiente sta per passare, così le
+  novità si leggono *prima* di aggiornare. Il collegamento compare solo dove la pagina esiste.
+  La scheda dice anche come sta la destinazione adesso: quante sessioni sono aperte e, per un
+  ambiente online, quali estensioni ci si stanno distribuendo. Entrambe si cliccano e aprono
+  l'elenco completo o il registro eventi. Se un valore non si legge la riga dice *non disponibile*
+  e perché: non mostra mai zero.
 - **Apri web client** — apre l'ambiente o l'istanza nel browser predefinito, sulla company che
   scegli, così non compare la selezione company di Business Central. La company scelta l'ultima
-  volta su quella destinazione torna selezionata; con una sola company si apre diretto. Su un server
+  volta su quella destinazione torna selezionata, in cima all'elenco con la stella; con una sola
+  company si apre diretto. Su un server
   la domanda arriva solo dove il servizio non dichiara già una company predefinita.
 - **Configurazione per VS Code** — produce la configurazione da incollare in `launch.json` per
   sviluppare su quella destinazione, con i valori letti dal servizio. Da *Sessioni attive* si
@@ -196,11 +220,15 @@ La disinstallazione **non cancella mai i dati**, su nessun tipo di destinazione:
 cancellerebbe le tabelle dell'estensione non è raggiungibile da qui. Sugli ambienti online la
 conferma dice prima che cosa dipende dall'estensione e va tolto per primo, e se una versione è già
 **pianificata** — cosa che conta, perché la disinstallazione non rimuove una versione pianificata e
-l'estensione si reinstallerebbe da sola più tardi.
+l'estensione si reinstallerebbe da sola più tardi. La disinstallazione si chiede sempre per adesso;
+l'ambiente può comunque rimandarla al proprio aggiornamento, e in quel caso la riga della coda esce
+**Programmata** e lo dice.
 
 Solo in locale ci sono le colonne **Sync** e **Aggiornamento dati**: un'estensione pubblicata ma non
 sincronizzata non funziona, e questo non si vede da nessun'altra parte; la seconda segna la versione
-che aspetta l'aggiornamento dei dati.
+che aspetta l'aggiornamento dei dati — anche quando sono i dati a essere indietro rispetto al
+pacchetto, cosa che la colonna **Versione dati** mostra: la versione a cui sono i dati
+dell'estensione sul tenant.
 
 **La pubblicazione** accetta un singolo `.app` o un'intera cartella, e ricava l'ordine dalle
 dipendenze dichiarate dentro ogni pacchetto. L'ordine si vede prima di confermare e **si può
@@ -229,7 +257,11 @@ se questa estensione sparisce.
 
 Creazione, copia, rinomina e cancellazione di un ambiente; ripristino a un istante nel tempo o dal
 cestino; finestra di aggiornamento e pianificazione dell'aggiornamento; e il registro eventi
-dell'ambiente — creazione, copia, rinomina, cancellazione, aggiornamenti, installazioni di app.
+dell'ambiente — creazione, copia, rinomina, cancellazione, aggiornamenti, installazioni di app. Il
+registro racconta tutta la storia, non solo ciò che è passato dall'interfaccia di amministrazione:
+ci sono anche le distribuzioni fatte da Visual Studio Code e da dentro Business Central, in ordine
+di data, e una colonna **Origine** dice da dove viene ogni riga — quelle registrate da Business
+Central non dicono chi le ha avviate, quando sono finite né perché sono fallite.
 
 **Operazioni pianificate** elenca ciò che partirà più tardi da solo — le estensioni per tenant in
 attesa della finestra di aggiornamento o del prossimo aggiornamento, gli aggiornamenti di app
@@ -237,13 +269,33 @@ mandati nella finestra, il prossimo aggiornamento dell'ambiente — e annulla ci
 consente di annullare.
 
 **Gli aggiornamenti delle app** stanno dentro la gestione estensioni: la colonna *Versione
-disponibile* porta la versione a cui si può passare, e si aggiorna subito oppure nella finestra di
-aggiornamento dell'ambiente. Le app che vanno aggiornate prima entrano anch'esse in coda, e prima:
+disponibile* porta la versione a cui si può passare, e la colonna *Stato* dice **Da aggiornare**, in
+ambra, al posto di *Installata*: ordinando per stato le app da aggiornare finiscono insieme. Si
+aggiorna subito oppure nella finestra di aggiornamento dell'ambiente. Le app che vanno aggiornate prima entrano anch'esse in coda, e prima:
 la conferma elenca l'intera catena nell'ordine in cui avverrà. Riguarda le app installate dal
 marketplace, comprese quelle dei partner; le estensioni per tenant qui non hanno una versione
 disponibile — si aggiornano pubblicando il pacchetto nuovo. Quando una versione nuova di
 un'estensione per tenant è già pianificata, la sua riga dice **Aggiornamento pianificato**, mostra
 quella versione, e **Annulla pianificazione** la toglie.
+
+**Il Catalogo AppSource** si apre già pieno: tutte le app per Business Central pubblicate per il
+mercato dell'ambiente evidenziato, in ordine alfabetico, che si filtrano scrivendo parte del nome
+dell'app o di quello dell'editore — con un clic su Microsoft o sugli editori di cui l'ambiente ha già
+delle app. Ogni riga dice chi la pubblica, la versione installata, la versione disponibile — quella
+che arriverebbe premendo il pulsante — e se l'app è installata, non installata o da aggiornare. Di
+quella evidenziata si legge quello che il marketplace ne dice: a cosa serve, com'è messa a prezzo, la
+valutazione, le categorie e i collegamenti a condizioni di licenza, informativa sulla privacy e
+supporto; con un doppio clic si apre la pagina dell'editore. La finestra dice quante app sono, per
+quale mercato e a che ora l'elenco è stato letto, e *Aggiorna elenco* lo rilegge. Le app per cui
+l'editore chiede di essere contattato prima restano in elenco, ma da qui non si installano.
+
+**Installa** chiede una conferma che nomina l'estensione e l'ambiente, mostra le condizioni
+dell'editore e l'informativa sulla privacy, e resta spento finché non si spunta di averle accettate.
+Installare non è acquistare: la licenza resta una questione fra il cliente e l'editore. Sulle app che
+hanno già un aggiornamento lo stesso pulsante diventa **Aggiorna**, e porta alla versione che
+*l'ambiente* offre, che può essere indietro rispetto all'ultima pubblicata. Entrambi passano dalla
+coda delle attività come ogni altra operazione sulle estensioni, e possono attendere la finestra di
+aggiornamento dell'ambiente.
 
 ### Configurazione del servizio (locale)
 
@@ -251,6 +303,45 @@ Tutte le chiavi di configurazione di un'istanza, raggruppate per ambito e con la
 cosa fa ciascuna. Due istanze si possono **confrontare**, mostrando solo le chiavi diverse — il modo
 più rapido di scoprire perché un server si comporta diversamente da un altro. Una chiave si può
 modificare da qui, dietro una conferma che nomina l'istanza.
+
+### Collegamenti della scheda
+
+Accanto alla linguetta delle destinazioni, ogni scheda ne ha una con i suoi **collegamenti**:
+descrizione e indirizzo di un sito, di una cartella locale o di una condivisione di rete. Servono a tenere accanto alla
+destinazione le cose che la riguardano — il portale del cliente, la documentazione, la cartella dei
+pacchetti. Si aggiungono, si modificano, si riordinano e si aprono con un doppio clic; viaggiano con
+l'elenco esportato, così chi lo riceve trova anche quelli. Un collegamento che punta a un programma o
+a uno script chiede conferma prima di avviarlo, nominando il file.
+
+I collegamenti si possono raccogliere in **gruppi**, creati dallo stesso pulsante *Aggiungi*, così una
+scheda con venti voci resta leggibile. Un collegamento entra in un gruppo trascinandocelo sopra o dal
+menu del tasto destro, un gruppo si apre e si chiude con il triangolino, ed eliminare un gruppo non
+elimina i collegamenti che contiene. Anche i gruppi viaggiano con l'elenco esportato.
+
+![La linguetta dei collegamenti di un server: portale del cliente, documentazione, cartelle dei pacchetti e dei backup](assets/dynamo-demo-links.png)
+
+### Sviluppo
+
+**Scarica simboli Microsoft** prende dai feed pubblici i pacchetti di simboli AL di Microsoft, senza
+destinazione e senza accesso: si scelgono localizzazione e versione di Business Central, e arrivano
+il set base — System, System Application, Business Foundation, Base Application, Application — più le
+altre app Microsoft spuntate.
+
+**Scarica simboli**, in gestione estensioni, prende i simboli dell'estensione evidenziata alla
+versione installata su quella destinazione e, a richiesta, le sue dipendenze. Arrivano dai feed
+pubblici, per le app Microsoft e AppSource, oppure **direttamente dalla destinazione** attraverso i
+suoi servizi di sviluppo, come fa VS Code — per-tenant extension comprese; online funziona sulle
+sandbox, non sugli ambienti Production.
+
+**Servizi web e API** mostra che cosa una destinazione pubblica verso l'esterno, e legge soltanto:
+ogni servizio con il protocollo su cui risponde — OData V4, API, SOAP — e l'indirizzo a cui si
+chiama, già completo della company. Per ogni servizio i campi con tipo, lunghezza e chiave, e i
+metodi con i parametri nell'ordine in cui vanno passati e il valore restituito; sui servizi SOAP i
+parametri che la procedure modifica sono marcati come tali. Altre tre schede — **Payload**,
+**Risposta** ed **Errore** — contengono gli esempi che servono a un documento tecnico: cosa si manda,
+cosa torna e com'è fatto un errore, pronti da incollare nel documento o in Postman. Compaiono anche le
+API che le app installate pubblicano su un indirizzo proprio, e ogni elenco si copia intero, con le
+intestazioni di colonna, in un foglio di calcolo.
 
 ---
 
@@ -277,9 +368,11 @@ conferma — e l'interruzione ferma l'applicazione, non quello che il server ha 
 
 ### Leggere gli esiti
 
-Il testo dello stato è colorato: verde completata, rosso errore, ambra saltata, blu in corso. Un
-errore troncato si apre per intero con il pulsante **...**, e il messaggio in fondo alla finestra si
-apre in una finestra leggibile facendoci clic.
+Il testo dello stato è colorato: verde completata, rosso errore, ambra saltata, blu in corso, viola
+programmata. **Programmata** è ciò che l'ambiente ha accettato ma non ha ancora eseguito — una
+pubblicazione mandata nella finestra di aggiornamento o a una versione futura — a differenza di
+*Saltata*, che non si farà. Un errore troncato si apre per intero con il pulsante **...**, e il
+messaggio in fondo alla finestra si apre in una finestra leggibile facendoci clic.
 
 Quando una pubblicazione su un ambiente online fallisce, il motivo scritto da Business Central viene
 riportato **dentro l'attività**, con l'ora e l'identificativo dell'operazione: non c'è altro da
@@ -288,6 +381,64 @@ aprire. Due casi non hanno un motivo da riportare — un pacchetto oltre i 50 MB
 
 *Verifica stato* produce un rapporto voce per voce: una riga per controllo, con esito e causa, e le
 righe fallite in evidenza.
+
+### Aspettare che la destinazione sia pronta
+
+Prima di un'operazione su un'estensione — pubblicazione, installazione, disinstallazione, annullamento
+della pubblicazione, sincronizzazione, aggiornamento dei dati, aggiornamento — DYNAMO controlla tre
+cose: che l'ambiente online non sia in preparazione, in aggiornamento o in eliminazione; che non ci
+sia già un'altra distribuzione in corso, anche avviata da un collega, da VS Code o da dentro Business
+Central; e, su un server, che il servizio dell'istanza sia in esecuzione. Se qualcosa non torna, la
+riga resta *In coda* con il motivo e i secondi che mancano al prossimo controllo, e l'operazione parte
+da sola appena la strada è libera. Intanto il lavoro sulle altre destinazioni continua a partire.
+Avvio, arresto e riavvio dei servizi non vengono mai trattenuti.
+
+Dopo mezz'ora di attesa la riga si chiude *Saltata*, con il motivo scritto, e niente è stato toccato.
+Una distribuzione che Business Central ha lasciato appesa — non chiude mai quelle interrotte — non
+viene più attesa dopo quattro ore; il limite si imposta da *Strumenti > Impostazioni > Esecuzione*,
+«Smetti di attendere una distribuzione dopo (ore)», e con 0 si attende sempre.
+
+Quando a essere in attesa è la riga sbagliata, **Avvia adesso**, il pulsante in fondo alla riga,
+scavalca l'attesa. La conferma nomina la destinazione e ripete il motivo, perché se la destinazione è
+davvero occupata Business Central può rifiutare l'operazione.
+
+### Riprovare una riga
+
+Una riga che non ha fatto il suo lavoro si può riprovare dalla coda, e riparte con le stesse opzioni
+con cui era partita — modalità di sincronizzazione, togli le versioni precedenti, elimina i file dopo,
+eliminazione dei dati — senza ripassare dal menu. Il pulsante compare sulle righe in errore e su
+quelle *Saltate* perché l'attesa è scaduta; gli altri salti, come una versione già presente o una
+dipendenza che manca, darebbero di nuovo lo stesso salto. **Riprova non riuscite**, sopra l'elenco, le
+rimette in coda tutte insieme. La riga fallita resta in elenco: il tentativo nuovo è una riga nuova.
+
+Le operazioni che possono perdere dati o interrompere un servizio chiedono di nuovo conferma,
+nominando la destinazione e le opzioni con cui ripartono. Creazione, copia, rinomina, eliminazione e
+ripristino di un ambiente online non si riprovano mai: proseguono sui server Microsoft anche quando
+DYNAMO ne perde le tracce, e rifarle alla cieca potrebbe creare un secondo ambiente o agire su quello
+sbagliato.
+
+---
+
+## Cronologia locale
+
+*Attività > Cronologia locale* è il registro delle manutenzioni fatte **da questo computer**. Ci
+entra solo ciò che modifica un'istanza o un ambiente — avvio, arresto e riavvio, pubblicazione,
+installazione, disinstallazione, sincronizzazione, aggiornamento dei dati, import della licenza,
+modifica della configurazione, chiusura di una sessione, e creazione, copia, rinomina, eliminazione e
+ripristino degli ambienti. Consultare un elenco non cambia niente, quindi non compare.
+
+Ogni voce porta data e ora, utente, server o tenant, istanza o ambiente, operazione, oggetto ed
+esito — *Riuscito*, *Errore*, *Saltato*, *Programmata*, *Annullato*. Il riquadro in basso riporta i
+passi della riga evidenziata — per una pubblicazione, ogni comando eseguito su Business Central —, le
+opzioni scelte nella finestra che la precede e il messaggio d'errore per intero. La finestra si apre
+sulla destinazione evidenziata, e una tendina la allarga a tutta la scheda o a tutto il registro; le
+colonne si ordinano con un clic, e l'elenco si restringe per testo, per esito e per mese.
+
+Non è il registro eventi dell'ambiente: quello è ciò che Business Central ha registrato sull'ambiente,
+questa è la cronologia di ciò che hai fatto da qui. Resta su questa macchina e non viene inviata da
+nessuna parte. Un file al mese, si tengono gli ultimi dodici, e da *Strumenti > Impostazioni >
+Cronologia locale* si spegne. Il valore di una chiave di configurazione che ha «Password» o «Secret»
+nel nome non viene mai registrato.
 
 ---
 
@@ -305,6 +456,11 @@ ne accettano una sola. Con una sola riga evidenziata le due coincidono, ed è il
 Ogni funzione che agisce su più righe chiede **conferma, dicendo quante e quali destinazioni
 verranno toccate**. Le conferme che interrompono un servizio partono da «No».
 
+Un clic sull'intestazione di una colonna ordina la griglia, e una **freccia** accanto al titolo dice
+quale colonna comanda e in che verso — in su se crescente, in giù se decrescente. La coda delle
+attività è l'eccezione: non si può ordinare, e resta sempre nell'ordine in cui le righe sono state
+accodate.
+
 ---
 
 ## Dove stanno le impostazioni
@@ -316,8 +472,9 @@ verranno toccate**. Le conferme che interrompono un servizio partono da «No».
 | Cache del token di accesso (cifrata) | `%LOCALAPPDATA%\Dynamo\` |
 | Account dei server locali | Gestione credenziali di Windows, `DYNAMO:<server>` |
 | Dettaglio degli errori imprevisti (si tengono i più recenti) | `%APPDATA%\Dynamo\errors.log` |
+| Registro delle manutenzioni su istanze e ambienti (un file al mese, ultimi dodici) | `%APPDATA%\Dynamo\history\` |
 
-*File > Impostazioni* mostra il percorso della cartella e la apre: è quella da copiare per un backup
+*Strumenti > Impostazioni* mostra il percorso della cartella e la apre: è quella da copiare per un backup
 o per portare la configurazione su un'altra macchina.
 
 Sono **due file di proposito**. L'elenco si esporta e si scambia; le preferenze sono di chi usa la
@@ -327,7 +484,7 @@ macchina — così importare l'elenco di un collega non porta via la propria con
 
 ## Lingua e impostazioni regionali
 
-L'applicazione parla **inglese o italiano**, si sceglie da *File > Impostazioni*. Il primo avvio
+L'applicazione parla **inglese o italiano**, si sceglie da *Strumenti > Impostazioni*. Il primo avvio
 parte dalla lingua di Windows e la scrive nella configurazione; da lì in poi comanda la tua scelta,
 non la macchina. Su un Windows che non è né inglese né italiano parte in inglese. Il cambio ha
 effetto **al riavvio** — le finestre già costruite non si riscrivono da sole — e la finestra lo dice
