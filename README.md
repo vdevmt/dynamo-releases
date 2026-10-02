@@ -441,10 +441,15 @@ nothing, so it does not appear.
 
 Every entry carries date and time, user, server or tenant, instance or environment, operation,
 subject and outcome — *Succeeded*, *Error*, *Skipped*, *Scheduled*, *Cancelled*. The box at the
-bottom shows the steps of the highlighted row — for a publish, each command run on Business Central
-— the options chosen in the window before it, and the full error message. The window opens on the
-highlighted target, and a drop-down widens it to the whole tab or to the whole record; columns sort
-on a click, and the list narrows by text, outcome and month.
+bottom tells the highlighted row step by step: the account used on the target and the options chosen
+in the window before it; then **each step with its start time, end time and duration** — for a
+publish, sending the package, the deployment, synchronization, installation and the removal of
+previous versions, and on an on-premises server each step of the script — and the **waits** too, such
+as another deployment running on the environment, with how many times it was checked again; then the
+outcome with the full error message, and last the **total duration**. An entry is written as soon as
+its row finishes: a folder publish leaves one per app, not all together at the end. The window opens
+on the highlighted target, and a drop-down widens it to the whole tab or to the whole record; columns
+sort on a click, and the list narrows by text, outcome and month.
 
 It is not the environment's event log: that is what Business Central recorded on the environment,
 this is what you did from here. It stays on this machine and is never sent anywhere. One file per

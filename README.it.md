@@ -455,11 +455,17 @@ modifica della configurazione, chiusura di una sessione, e creazione, copia, rin
 ripristino degli ambienti. Consultare un elenco non cambia niente, quindi non compare.
 
 Ogni voce porta data e ora, utente, server o tenant, istanza o ambiente, operazione, oggetto ed
-esito — *Riuscito*, *Errore*, *Saltato*, *Programmata*, *Annullato*. Il riquadro in basso riporta i
-passi della riga evidenziata — per una pubblicazione, ogni comando eseguito su Business Central —, le
-opzioni scelte nella finestra che la precede e il messaggio d'errore per intero. La finestra si apre
-sulla destinazione evidenziata, e una tendina la allarga a tutta la scheda o a tutto il registro; le
-colonne si ordinano con un clic, e l'elenco si restringe per testo, per esito e per mese.
+esito — *Riuscito*, *Errore*, *Saltato*, *Programmata*, *Annullato*. Il riquadro in basso racconta la
+riga evidenziata passo per passo: l'account usato sulla destinazione e le opzioni scelte nella finestra
+che la precede; poi **ogni passo con ora di inizio, ora di fine e durata** — per una pubblicazione,
+l'invio del pacchetto, la distribuzione, la sincronizzazione, l'installazione e la rimozione delle
+versioni precedenti, e su un server locale ogni passo dello script — e anche le **attese**, come
+un'altra distribuzione in corso sull'ambiente, con quante volte è stata ricontrollata; poi l'esito con
+il messaggio d'errore per intero, e in fondo la **durata totale**. Una voce viene scritta appena la sua
+riga si conclude: una pubblicazione da cartella ne lascia una per app, non tutte insieme alla fine. La
+finestra si apre sulla destinazione evidenziata, e una tendina la allarga a tutta la scheda o a tutto
+il registro; le colonne si ordinano con un clic, e l'elenco si restringe per testo, per esito e per
+mese.
 
 Non è il registro eventi dell'ambiente: quello è ciò che Business Central ha registrato sull'ambiente,
 questa è la cronologia di ciò che hai fatto da qui. Resta su questa macchina e non viene inviata da

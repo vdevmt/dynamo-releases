@@ -7,6 +7,57 @@ What changes for whoever uses the program, newest first. Every version is publis
 
 ---
 
+## 1.50.0 — Notes tab, export by tab, and a local history with every step
+
+**New features**
+- **Notes tab**, next to Targets and Links: free notes on the tab, to add, edit, delete and reorder. A
+  note can be marked **Important**: it shows in red and, when the tab has at least one, in a banner
+  above the targets grid — two lines at most, with an ellipsis when it does not all fit; clicking the
+  banner opens the Notes tab.
+- **Export and import by tab**: the export window lets you choose which tabs go in the file — a single
+  server or tenant to share with a colleague, or the whole list as a personal backup — and whether to
+  include the **links** (on by default) and the **notes** (off by default, since a note may hold
+  personal or confidential information). A tab's right-click menu has a new "Export tab…" shortcut.
+  Importing adds to an existing tab only the links and notes it is missing. Favourites and hidden rows
+  no longer travel in the file.
+- **Local history with every step**: an operation is no longer reduced to its last message. Each step
+  — sending the package, the deployment queued and running, synchronization, data upgrade,
+  installation, removal of previous versions — is kept with its start time, end time and duration,
+  on on-premises targets too. The waits are recorded as well (another extension being published, the
+  turn inside a folder), with how many times it was checked again, together with the account used,
+  and the text ends with the total duration. Each entry is written as soon as its row finishes: a
+  folder publish leaves one entry per app. In the details of a queue row the same steps can be read
+  while the operation is still running.
+
+**Job queue**
+- One **Destination** column ("instance [tab]") replaces server/tenant and instance/environment; the
+  column that repeated the same pair is gone, and "Error / Output" is now simply "Output". A row that
+  has already been retried can no longer be retried again: "Retry unsuccessful" runs again only the
+  latest attempt of each job.
+- **When a publish waits** because another deployment is already running on the environment, the
+  reason also says **who** is running it — or "not recorded" when the environment does not declare
+  it, for example for a publish from VS Code.
+- A brief network or service hiccup while waiting for a SaaS publish or uninstall no longer marks a
+  still-running installation as failed: DYNAMO retries the status read instead of giving up.
+
+**Other changes**
+- The **AppSource catalog** button shows only on online tabs, where the catalog works.
+- A handled error (a failed automatic save, say) stays visible in red in the status bar until it
+  resolves or you close it with the new "×". Connection settings opened from a tab's right-click menu
+  always change the tab you clicked. Setting the update window or scheduling an update also confirms
+  success in a window.
+- In the sessions, configuration, scheduled operations, app operations, license and web services
+  windows, a long error shortens to a few lines and opens in full on a click.
+- At startup the update notification waits for the initial tab to finish refreshing; "Update now"
+  always shows the window with the release notes, even while other operations are running — the
+  block applies only to the download.
+- Adding or refreshing a server or tenant that fails shows the outcome window again instead of
+  failing silently; a tenant named like an existing on-premises tab warns with its own window.
+- In the tab header the "(+N hidden)" count stays clickable after turning on "Show all"; a tab with
+  no links no longer says "0 links".
+
+---
+
 ## 1.49.0 — AppSource catalog, web services and APIs, local history
 
 **New features**

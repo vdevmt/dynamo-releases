@@ -7,6 +7,62 @@ Che cosa cambia per chi usa il programma, dalla più recente. Ogni versione vien
 
 ---
 
+## 1.50.0 — linguetta Note, esportazione per schede e cronologia locale con tutti i passaggi
+
+**Nuove funzioni**
+- **Linguetta Note**, accanto a Destinazioni e Collegamenti: appunti liberi sulla scheda, da
+  inserire, modificare, eliminare e riordinare. Una nota si può segnare **Importante**: compare in
+  rosso e, se la scheda ne ha almeno una, in un banner sopra la griglia delle destinazioni — due righe
+  al massimo, con i puntini quando non ci sta tutta; un clic sul banner apre la linguetta Note.
+- **Esportazione e importazione per schede**: la finestra di esportazione fa scegliere quali schede
+  entrano nel file — un solo server o tenant da condividere con un collega, oppure l'elenco intero
+  come backup personale — e se includere i **collegamenti** (spuntato di default) e le **note** (non
+  spuntato, perché una nota può contenere appunti personali o riservati). Il menu del tasto destro
+  sulla linguetta ha la nuova scorciatoia «Esporta scheda…». L'importazione aggiunge a una scheda già
+  presente solo i collegamenti e le note che le mancano. Preferiti e righe nascoste non viaggiano più
+  nel file.
+- **Cronologia locale con tutti i passaggi**: un'operazione non si riduce più all'ultimo messaggio.
+  Ogni passaggio — invio del pacchetto, distribuzione in coda e in esecuzione, sincronizzazione,
+  aggiornamento dei dati, installazione, rimozione delle versioni precedenti — resta con ora di
+  inizio, ora di fine e durata, anche sulle destinazioni OnPrem. Si registrano anche le attese
+  (un'altra estensione in pubblicazione, il turno dentro una cartella), con quante volte si è
+  ricontrollato, e l'account con cui si è lavorato; il testo si chiude con la durata totale. Ogni voce
+  viene scritta appena la sua riga si conclude: una pubblicazione da cartella lascia una voce per app.
+  Nei dettagli di una riga della coda gli stessi passaggi si leggono mentre l'operazione è ancora in
+  corso.
+
+**Coda delle attività**
+- Una sola colonna **Destinazione** («istanza [scheda]») al posto di server/tenant e
+  istanza/ambiente; la colonna che ripeteva la stessa coppia è sparita, e «Errore / Output» diventa
+  semplicemente «Output». Una riga già riprovata non si può più riprovare: «Riprova non riuscite»
+  rimette in lavorazione solo l'ultimo tentativo di ogni lavoro.
+- **Quando una pubblicazione aspetta** perché sull'ambiente ne è già in corso un'altra, il motivo dice
+  anche **chi** la sta eseguendo — o «non registrato» se l'ambiente non lo dichiara, per esempio per
+  una pubblicazione da VS Code.
+- Un errore momentaneo di rete o del servizio durante l'attesa di una pubblicazione o disinstallazione
+  SaaS non segna più come fallita un'installazione ancora in corso: DYNAMO riprova la lettura dello
+  stato invece di arrendersi.
+
+**Altre modifiche**
+- Il pulsante del **catalogo AppSource** compare solo sulle schede online, dove il catalogo funziona.
+- Un errore gestito (per esempio un salvataggio automatico non riuscito) resta visibile in rosso
+  nella barra di stato finché non si risolve o non lo si chiude con la nuova «×». Le impostazioni di
+  connessione aperte dal menu del tasto destro sulla linguetta modificano sempre la scheda su cui si è
+  cliccato. Impostare la finestra di aggiornamento o pianificare un aggiornamento conferma anche
+  l'esito positivo in una finestra.
+- Nelle finestre di sessioni, configurazione, operazioni pianificate, operazioni app, licenza e
+  servizi web un errore lungo si accorcia a poche righe e si apre per intero con un clic.
+- All'avvio la notifica di un aggiornamento disponibile aspetta che la scheda iniziale abbia finito di
+  rileggersi; «Aggiorna ora» mostra sempre la finestra con le note di rilascio, anche a operazioni
+  ancora in corso — il blocco vale solo per lo scaricamento.
+- Aggiungere o aggiornare un server o un tenant che fallisce mostra di nuovo la finestra d'esito
+  invece di sparire in silenzio; un tenant con lo stesso nome di una scheda OnPrem già esistente
+  avvisa con una finestra propria.
+- Nell'intestazione della scheda il conteggio «(+N nascoste)» resta cliccabile anche dopo aver acceso
+  «Mostra tutto»; una scheda senza collegamenti non dice più «0 collegamenti».
+
+---
+
 ## 1.49.0 — catalogo AppSource, servizi web e API, cronologia locale
 
 **Nuove funzioni**
