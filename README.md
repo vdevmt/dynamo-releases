@@ -139,10 +139,13 @@ choose the type.
   be off.
 - **Online**: give the tenant domain (`contoso.onmicrosoft.com`) or its identifier, and the
   environments are listed after you sign in.
-- **None**: a tab with no targets, made of links only.
+- **None**: a tab with no targets, made of links and notes only.
 
-The list saves itself on every change. It can be **exported and imported**, so a colleague can start
-from yours without retyping anything — your own preferences are never carried along with it.
+The list saves itself on every change. It can be **exported and imported**, in full or one tab at a
+time, so a colleague can start from a single server or tenant of yours without retyping anything —
+your own preferences are never carried along with it. Exporting lets you choose, per transfer,
+whether to include the tab's links (on by default) and its notes (off by default, since a note may
+hold something you would not want to hand over without thinking about it first).
 
 ### Signing in to a tenant
 
@@ -299,9 +302,9 @@ that names the instance.
 Next to the targets tab, every tab has one with its **links**: the description and address of a
 website, a local folder or a network share. They keep next to the target the things that belong to it — the
 customer's portal, the documentation, the folder with the packages. They are added, edited,
-reordered and opened on a double click; they travel with the exported list, so whoever receives it
-gets them too. A link that points to a program or a script asks for confirmation before running it,
-naming the file.
+reordered and opened on a double click; they travel with the exported list unless left out at export
+time (see "First run — building the list" above), so whoever receives it gets them too. A link that
+points to a program or a script asks for confirmation before running it, naming the file.
 
 Links can be gathered into **groups**, created from the same *Add* button, so a tab with twenty
 entries stays readable. A link goes into a group by dragging it onto it or from the right-click menu,
@@ -309,6 +312,16 @@ a group opens and closes on its triangle, and deleting a group does not delete t
 Groups travel with the exported list too.
 
 ![The links tab of a server: customer portal, documentation, package and backup folders](assets/dynamo-demo-links.png)
+
+### Tab notes
+
+A third tab, **Notes**, holds free text about the tab: an appointment to respect, a contact, anything
+that does not fit a link. A note is added, edited, deleted and reordered with "Add" and Up/Down, and
+it can be marked **Important** — it then shows in red in its card and, when the tab has at least one
+important note, also in a banner above the targets grid, two lines at most with an ellipsis if there
+is more than fits; clicking the banner takes you straight to the Notes tab. Notes can hold personal
+or confidential information about the target, so — unlike links — **they do not travel with the
+exported list unless you ask**: see "First run — building the list" above.
 
 ### Development
 
@@ -380,6 +393,18 @@ colleague, from VS Code or from inside Business Central; and, on a server, that 
 is running. If something is off, the row stays *Queued* with the reason and the seconds left before
 the next check, and the operation starts on its own as soon as the way is clear. Work on the other
 targets keeps starting meanwhile. Starting, stopping and restarting services are never held back.
+
+![A folder publish waiting in the activity queue: each row says which extension is already being deployed on the environment, who started it, and the seconds left before the next check](assets/dynamo-demo-wait.png)
+
+*Waiting for the environment — the reason names the extension already being deployed and who started it.*
+
+The reason says **what** is in the way: the extension and version being deployed on the environment,
+and **who started it** — the account, when the Admin Center records it. A deployment started from VS
+Code or from inside Business Central has no author on record, and the row says "not recorded"
+rather than guess. A publish of a whole folder waits as a single operation: every app shows the same
+reason and the same countdown, and they start in the confirmed order as soon as the way is clear.
+Each wait is also kept in the local history, with how many times the check was repeated (see *Local
+history*).
 
 After half an hour of waiting the row ends *Skipped*, with the reason written, and nothing has been
 touched. A deployment that Business Central left hanging — it never closes an interrupted one — stops

@@ -142,10 +142,13 @@ l'etichetta e si sceglie il tipo.
   può essere semplicemente spento.
 - **Online**: si indica il dominio del tenant (`contoso.onmicrosoft.com`) o il suo identificativo, e
   dopo l'accesso vengono elencati gli ambienti.
-- **Nessuno**: una scheda senza destinazioni, fatta di soli collegamenti.
+- **Nessuno**: una scheda senza destinazioni, fatta di soli collegamenti e note.
 
-L'elenco si salva da solo a ogni modifica. Si può **esportare e importare**, così un collega parte
-dal tuo senza riscrivere niente — le tue preferenze non viaggiano mai insieme all'elenco.
+L'elenco si salva da solo a ogni modifica. Si può **esportare e importare**, intero o una scheda alla
+volta, così un collega parte da un tuo singolo server o tenant senza riscrivere niente — le tue
+preferenze non viaggiano mai insieme all'elenco. All'esportazione si sceglie, per ogni trasferimento,
+se includere i collegamenti della scheda (spuntato di default) e le sue note (non spuntato di
+default, perché una nota può contenere qualcosa che non vorresti consegnare senza pensarci prima).
 
 ### Accedere a un tenant
 
@@ -310,8 +313,9 @@ Accanto alla linguetta delle destinazioni, ogni scheda ne ha una con i suoi **co
 descrizione e indirizzo di un sito, di una cartella locale o di una condivisione di rete. Servono a tenere accanto alla
 destinazione le cose che la riguardano — il portale del cliente, la documentazione, la cartella dei
 pacchetti. Si aggiungono, si modificano, si riordinano e si aprono con un doppio clic; viaggiano con
-l'elenco esportato, così chi lo riceve trova anche quelli. Un collegamento che punta a un programma o
-a uno script chiede conferma prima di avviarlo, nominando il file.
+l'elenco esportato, salvo esclusione al momento dell'esportazione (vedi «Primo avvio — costruire
+l'elenco» più sopra), così chi lo riceve trova anche quelli. Un collegamento che punta a un programma
+o a uno script chiede conferma prima di avviarlo, nominando il file.
 
 I collegamenti si possono raccogliere in **gruppi**, creati dallo stesso pulsante *Aggiungi*, così una
 scheda con venti voci resta leggibile. Un collegamento entra in un gruppo trascinandocelo sopra o dal
@@ -319,6 +323,17 @@ menu del tasto destro, un gruppo si apre e si chiude con il triangolino, ed elim
 elimina i collegamenti che contiene. Anche i gruppi viaggiano con l'elenco esportato.
 
 ![La linguetta dei collegamenti di un server: portale del cliente, documentazione, cartelle dei pacchetti e dei backup](assets/dynamo-demo-links.png)
+
+### Note della scheda
+
+Una terza linguetta, **Note**, tiene il testo libero sulla scheda: un orario da rispettare, un
+contatto, qualunque cosa non trovi posto in un collegamento. Una nota si aggiunge, si modifica, si
+elimina e si riordina con «Aggiungi» e Su/Giù, e si può segnare **Importante** — compare allora in
+rosso nel riquadro e, quando la scheda ha almeno una nota importante, anche in un banner sopra la
+griglia delle destinazioni, due righe al massimo con i puntini se non ci sta tutto; un clic sul
+banner porta dritto alla linguetta Note. Le note possono contenere informazioni personali o
+riservate sulla destinazione, quindi — a differenza dei collegamenti — **non viaggiano con l'elenco
+esportato se non lo si chiede**: vedi «Primo avvio — costruire l'elenco» più sopra.
 
 ### Sviluppo
 
@@ -392,6 +407,18 @@ Central; e, su un server, che il servizio dell'istanza sia in esecuzione. Se qua
 riga resta *In coda* con il motivo e i secondi che mancano al prossimo controllo, e l'operazione parte
 da sola appena la strada è libera. Intanto il lavoro sulle altre destinazioni continua a partire.
 Avvio, arresto e riavvio dei servizi non vengono mai trattenuti.
+
+![Una pubblicazione da cartella in attesa nella coda delle attività: ogni riga dice quale estensione è già in distribuzione sull'ambiente, chi l'ha avviata e i secondi che mancano al prossimo controllo](assets/dynamo-demo-wait.png)
+
+*In attesa dell'ambiente — il motivo nomina l'estensione già in distribuzione e chi l'ha avviata.*
+
+Il motivo dice **cosa** c'è di mezzo: l'estensione e la versione in distribuzione sull'ambiente, e
+**chi l'ha avviata** — l'account, quando l'Admin Center lo registra. Una distribuzione partita da VS
+Code o da dentro Business Central non ha un autore registrato, e la riga dice «non registrato» invece
+di indovinare. Una pubblicazione da cartella aspetta come un'operazione sola: ogni app mostra lo
+stesso motivo e lo stesso conto alla rovescia, e partono nell'ordine confermato appena la strada è
+libera. Ogni attesa resta anche nella cronologia locale, con quante volte è stata ricontrollata (vedi
+*Cronologia locale*).
 
 Dopo mezz'ora di attesa la riga si chiude *Saltata*, con il motivo scritto, e niente è stato toccato.
 Una distribuzione che Business Central ha lasciato appesa — non chiude mai quelle interrotte — non
